@@ -5,7 +5,7 @@
 - I'm CSE undergraduate in IIIT Jabalpur.
 - I'm a Full Stack Web Developer and an Enthusiastic Learner.
 
-### Projects
+### Major Projects
 
 Share Hub :
 - A platform where people of same community can share usefull stuffs that can benefits the whole community.
@@ -20,3 +20,8 @@ GiftUs :
 VFIN : 
 - A Vehicle Finance Platform for Agents to easily recover and track loans of a vehicle
 - Repository : [Click Here](https://github.com/abhishek-geek/vfin)
+
+### Connect with me 
+- [Github](https://github.com/abhishek-geek)
+- [LinkedIn](https://www.linkedin.com/in/abhishekdubey825/)
+- [Instagram](https://www.instagram.com/_abhishekdubey825/)
