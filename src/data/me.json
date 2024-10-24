@@ -128,7 +128,12 @@
       "institute": "IIIT Jabalpur",
       "duration": "Jul 2019 - Apr 2023",
       "degree": "B.Tech in Computer Science & Engineering",
-      "courses": "Data Structures, Algorithms, Computer Networks, Database Management"
+      "courses": [
+        "Data Structures",
+        "Algorithms",
+        "Computer Networks",
+        "Database Management"
+      ]
     }
   ],
   "personalProjects": [
@@ -138,7 +143,7 @@
       "description": "Engineered an IoT system for real-time grain moisture monitoring, cutting grain loss by 30%.",
       "links": [
         {
-          "name": "Patent Link:",
+          "name": "Patent Link",
           "url": "https://drive.google.com/file/d/11Vk2EtDXpbRno8hXi2HnxX0JtBcniR9H/view"
         }
       ]
@@ -149,7 +154,7 @@
       "description": "A solution to make journaling easy by tracking daily tasks, notes, and upcoming events.",
       "links": [
         {
-          "name": "Github Link:",
+          "name": "Github Link",
           "url": "https://github.com/abhishek-geek/zournal"
         }
       ],
@@ -169,7 +174,7 @@
       "description": "Designed a DBMS for bank agents to manage vehicle loans, boosting recovery efficiency by 20%.",
       "links": [
         {
-          "name": "Github Link:",
+          "name": "Github Link",
           "url": "https://github.com/abhishek-geek/vfin"
         }
       ],
@@ -179,35 +184,58 @@
   "skills": [
     {
       "id": 1,
-      "name": "Programming Languages",
-      "skills": ["JavaScript", "TypeScript", "C++", "Python"]
+      "category": "Programming Languages",
+      "skills": [
+        "C",
+        "C++",
+        "JavaScript",
+        "TypeScript",
+        "Java",
+        "Python",
+        "SQL",
+        "HTML/CSS"
+      ]
     },
     {
       "id": 2,
-      "name": "Web Technologies",
+      "category": "Frameworks & Libraries",
       "skills": [
+        "React.js",
         "Node.js",
+        "Nest.js",
         "Express.js",
-        "React",
-        "Redux",
-        "GraphQL",
-        "REST APIs"
+        "GraphQl",
+        "Socket.io",
+        "Temporal.io"
       ]
     },
     {
       "id": 3,
-      "name": "Databases",
-      "skills": ["MongoDB", "MySQL", "Firebase", "Redis"]
+      "category": "Database",
+      "skills": ["MongoDB", "Redis", "MySQL", "Firebase"]
     },
     {
       "id": 4,
-      "name": "Cloud Platforms",
-      "skills": ["AWS", "Google Cloud Platform", "Azure"]
+      "category": "Cloud & DevOps Tools",
+      "skills": [
+        "AWS (EC2, ECR, ECS, S3, ElastiCache, SNS, SQS)",
+        "Docker",
+        "Git",
+        "GitHub",
+        "VS Code",
+        "Postman",
+        "Linux"
+      ]
     },
     {
       "id": 5,
-      "name": "Tools",
-      "skills": ["Git", "Docker", "Jenkins", "Postman", "VS Code"]
+      "category": "Methodologies",
+      "skills": ["Agile", "Test-Driven Development (TDD)", "CI/CD Pipelines"]
+    },
+    {
+      "id": 6,
+      "category": "API Development",
+      "skills": ["REST", "GraphQL", "SOAP"]
     }
   ]
 }

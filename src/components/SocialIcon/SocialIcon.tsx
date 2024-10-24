@@ -1,7 +1,3 @@
-// src/components/SocialIcon.js
-
-import React from "react";
-
 const SocialIcon = ({
   icon,
   url,
@@ -18,7 +14,7 @@ const SocialIcon = ({
       rel="noopener noreferrer"
       className="social-icon"
     >
-      <img src={icon} alt={alt} />
+      <img src={icon} alt={alt} style={{ height: "3rem" }} />
     </a>
   );
 };

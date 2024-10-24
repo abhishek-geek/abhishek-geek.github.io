@@ -23,9 +23,10 @@
 }
 
 .about-image {
-  width: 250px; /* Set image width */
+  width: 500px; /* Set image width */
   height: auto; /* Maintain aspect ratio */
   margin-left: 20px; /* Spacing between text and image */
+  border: 5px solid var(--black); /* Add border */
   border-radius: 10px; /* Optional: rounded corners */
 }
 
@@ -33,6 +34,35 @@
   display: flex;
   gap: 10px; /* Space between social icons */
   justify-content: center; /* Center icons */
+}
+
+.resume-button {
+  margin: 20px; /* Add top margin */
+  background-color: var(--cream); /* Set background color */
+  color: var(--black); /* Set text color */
+  padding: 10px 20px; /* Add padding */
+  border: 1px solid var(--black); /* Add border */
+  border-radius: 5px; /* Optional: rounded corners */
+  text-decoration: none; /* Remove underline */
+  font-size: large; /* Set font weight */
+  font-weight: bold;
+}
+
+.contact {
+  margin-top: 20px; /* Add top margin */
+  text-align: center; /* Center text */
+  font-size: larger;
+}
+
+.contact a {
+  color: var(--link-color);
+  font-style: italic;
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
+}
+
+.contact a:hover {
+  text-shadow: 0px 0px 5px var(--link-glow-color); /* Add a subtle glow effect */
+  text-decoration: underline;
 }
 
 /* Media query for mobile devices */

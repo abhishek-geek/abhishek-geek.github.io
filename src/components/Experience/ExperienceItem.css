@@ -6,6 +6,7 @@
   width: 100%;
   max-width: 800px;
   transition: transform 0.2s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .experience-item:hover {

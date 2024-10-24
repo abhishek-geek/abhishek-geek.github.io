@@ -3,6 +3,8 @@
   --white: #ffffff; /* White color */
   --black: #000000; /* Black color */
   --cream: #FFFDF2; /* Cream color */
+  --link-color: #e63946;
+  --link-glow-color: rgba(255, 165, 0, 0.6);
 }
 
 * {
