@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar/Navbar";
 // import Contact from './components/Contact'; // Create this component
 import About from "./components/About/About";
 import Experience from "./components/Experience/Experience";
+import Skills from "./components/Skills/Skills";
 
 /**
  * 
@@ -35,6 +36,7 @@ function App() {
       <Navbar />
       <About />
       <Experience />
+      <Skills />
     </div>
   );
 }

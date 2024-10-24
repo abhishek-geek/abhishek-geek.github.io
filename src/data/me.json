@@ -175,5 +175,39 @@
       ],
       "techUsed": ["MySQL", "WAMP", "HTML/CSS", "PHP"]
     }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "name": "Programming Languages",
+      "skills": ["JavaScript", "TypeScript", "C++", "Python"]
+    },
+    {
+      "id": 2,
+      "name": "Web Technologies",
+      "skills": [
+        "Node.js",
+        "Express.js",
+        "React",
+        "Redux",
+        "GraphQL",
+        "REST APIs"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Databases",
+      "skills": ["MongoDB", "MySQL", "Firebase", "Redis"]
+    },
+    {
+      "id": 4,
+      "name": "Cloud Platforms",
+      "skills": ["AWS", "Google Cloud Platform", "Azure"]
+    },
+    {
+      "id": 5,
+      "name": "Tools",
+      "skills": ["Git", "Docker", "Jenkins", "Postman", "VS Code"]
+    }
   ]
 }

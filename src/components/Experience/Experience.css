@@ -17,9 +17,8 @@
 }
 
 .experience-item {
-  background-color: #FFFDF2; /* Change as needed */
   border-radius: 8px;
-  border: 1px solid #ecf0f1; /* Change as needed */
+  border: 1px solid var(--black); /* Change as needed */
   padding: 1rem;
   margin: 1rem;
   width: 100%;
@@ -48,8 +47,9 @@
 }
 
 .skill {
-  background-color: #e74c3c; /* Change as needed */
-  color: white;
+  background-color: var(--cream); /* Change as needed */
+  color: var(--black);
+  border: 1px solid var(--black);
   padding: 0.5rem;
   border-radius: 4px;
   margin-right: 5px;
