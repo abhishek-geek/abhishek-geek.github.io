@@ -1,0 +1,58 @@
+/* Global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif; /* Change as per your font choice */
+  color: #FFFDF2; /* Text color */
+  line-height: 1.6; /* Improve readability */
+  background-color: 970747; /* Background color */
+}
+
+.section {
+  display: flex;
+  justify-content: center; /* Center content */
+  padding: 2rem;
+  max-width: 1200px; /* Max width */
+  margin: 0 auto; /* Center in the middle */
+}
+
+.section-content {
+  flex: 1; /* Allow content to expand */
+  max-width: 1000px; /* Optional limit */
+  text-align: center; /* Center text */
+}
+
+/* Styles for <h1> with decorative lines */
+h1 {
+  font-family: 'Arial', sans-serif; /* Font choice */
+  font-size: 2.5rem; /* Size adjustment */
+  color: #000000; /* White-ish text color */
+  text-align: center; /* Center the text */
+  position: relative; /* Relative positioning for the line elements */
+  margin: 40px 0; /* Vertical margin */
+}
+
+/* Line before and after the <h1> text */
+h1::before,
+h1::after {
+  content: ""; /* Empty content for the line */
+  display: block;
+  width: 60px; /* Width of the line */
+  height: 2px; /* Thickness of the line */
+  background-color: #000000; /* Line color, reddish tone */
+  margin: 10px auto; /* Center align the line */
+}
+
+/* Line before the text */
+h1::before {
+  margin-bottom: 15px; /* Spacing between line and text */
+}
+
+/* Line after the text */
+h1::after {
+  margin-top: 15px; /* Spacing between text and line */
+}

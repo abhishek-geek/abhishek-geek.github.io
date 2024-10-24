@@ -1,0 +1,159 @@
+{
+  "type": "object",
+  "required": [],
+  "properties": {
+    "personalDetails": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "name": {
+          "type": "object",
+          "required": [],
+          "properties": {
+            "first": {
+              "type": "string"
+            },
+            "last": {
+              "type": "string"
+            }
+          }
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "object",
+          "required": [],
+          "properties": {
+            "prefixCode": {
+              "type": "string"
+            },
+            "number": {
+              "type": "string"
+            }
+          }
+        },
+        "currentLocation": {
+          "type": "object",
+          "required": [],
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            }
+          }
+        },
+        "linkedin": {
+          "type": "string"
+        },
+        "github": {
+          "type": "string"
+        },
+        "x": {
+          "type": "string"
+        },
+        "resumeLink": {
+          "type": "string"
+        }
+      }
+    },
+    "workExperiences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "jobTitle": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "companyWebsite": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          },
+          "description": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "institute": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          },
+          "degree": {
+            "type": "string"
+          },
+          "courses": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "personalProjects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

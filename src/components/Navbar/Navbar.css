@@ -1,0 +1,49 @@
+/* src/components/Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Light border for separation */
+  position: sticky; /* Makes the navbar sticky */
+  top: 0; /* Sticks to the top */
+  z-index: 1000; /* Keeps it on top of other elements */
+}
+
+.navbar-brand {
+  font-size: 1.8rem; /* Slightly larger font size */
+  font-weight: bold; /* Bold text for emphasis */
+  text-decoration: none; /* Remove underline from brand link */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+  padding: 10px; /* Add padding for a better touch target */
+}
+
+.navbar-brand a {
+  text-decoration: none; /* Remove underline */
+}
+
+.navbar-brand:hover {
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for depth */
+}
+
+.navbar-links {
+  list-style: none; /* Removes bullet points */
+  display: flex;
+  gap: 15px; /* Space between links */
+}
+
+.navbar-links li {
+  transition: background-color 0.3s; /* Smooth background color transition on hover */
+}
+
+.navbar-links a {
+  text-decoration: none; /* Remove underline */
+  padding: 8px 15px; /* Padding around links */
+  border-radius: 5px; /* Rounded corners for buttons */
+  font-weight: 500; /* Slightly bolder text */
+}
+
+.navbar-links a:hover {
+  color: #ffffff; /* Change text color to white on hover */
+}
