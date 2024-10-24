@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+      }
+
+      /* Navbar */
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        transition: background-color 0.3s;
+      }
+
+      nav a:hover {
+        background-color: #555;
+        border-radius: 5px;
+      }
+
+      /* Section Styles */
+      section {
+        padding: 60px 0;
+      }
+
+      .intro {
+        text-align: center;
+        padding: 60px 0;
+        background: linear-gradient(to bottom, #f4f4f9, #eaeaea);
+      }
+
+      .intro h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+
+      .intro p {
+        font-size: 1.2rem;
+        color: #666;
+      }
+
+      /* Contact Links */
+      .contact-links a {
+        color: #333;
+        margin: 0 10px;
+        font-size: 1.2rem;
+        transition: color 0.3s;
+      }
+
+      .contact-links a:hover {
+        color: #0073e6;
+      }
+
+      /* Experience & Education & Projects */
+      .card {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        transition: box-shadow 0.3s;
+      }
+
+      .card:hover {
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .card h3 {
+        margin-bottom: 10px;
+      }
+
+      .card p {
+        color: #666;
+      }
+
+      /* Skills */
+      .skills-list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .skill-item {
+        background-color: #333;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: transform 0.3s;
+      }
+
+      .skill-item:hover {
+        transform: scale(1.1);
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #333;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="#intro">Introduction</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <!-- Introduction Section -->
+      <section id="intro" class="intro">
+        <h1 id="name"></h1>
+        <p id="description"></p>
+        <div class="contact-links" id="contact-links"></div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience">
+        <h2>Experience</h2>
+        <div id="experience-list"></div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education">
+        <h2>Education</h2>
+        <div id="education-list"></div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-list" id="skills-list"></div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <div id="projects-list"></div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <span id="email"></span></p>
+        <p>Address: <span id="address"></span></p>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Abhishek Dubey. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      // Data Object
+      const data = {
+        contacts: {
+          name: "Abhishek Dubey",
+          email: "abhishekdubey825@gmail.com",
+          address: "Bengaluru, India",
+          linkedin: "https://www.linkedin.com/in/abhishekdubey825",
+          github: "https://github.com/abhishek-geek",
+          x: "https://x.com/Abhishek_825",
+        },
+        education: [
+          {
+            id: 1,
+            institute: "IIIT Jabalpur",
+            duration: "2019 - 2023",
+            degree: "B.Tech in Computer Science & Engineering",
+            courses:
+              "Data Structures, Algorithms, Computer Networks, Database Management",
+          },
+        ],
+        experiences: [
+          {
+            id: 1,
+            jobTitle: "Software Development Engineer II",
+            company: "Hopstack",
+            duration: "Jul 2024 - Present",
+            description:
+              "Designed and implemented core Warehouse Management System (WMS) modules, including Purchase Orders, handling over 500+ daily transactions.",
+            skills:
+              "Temporal.io, REST APIs, AWS, Microservices, MongoDB, Typescript, JavaScript, Node.js, Jest",
+          },
+          {
+            id: 2,
+            jobTitle: "Software Development Engineer I",
+            company: "Hopstack",
+            duration: "Jul 2024 - Present",
+            description: `• Optimized database performance with MongoDB Atlas and Atlas Search indexes, reducing query response times by 400%, improving app responsiveness by 30%.
+• Architected a billing service for 50+ clients, managing assignment tracking, usage monitoring, and cost control, boosting operational efficiency by 20%.
+• Automated workflows using Temporal, speeding up post-packing workflows and FBA (Fulfillment by Amazon) shipment creation, reducing manual efforts by 35%.
+• Implemented product bundle management, improving bundle tracking accuracy.• Optimized database performance with MongoDB Atlas and Atlas Search indexes, reducing query response times by 400%, improving app responsiveness by 30%. • Architected a billing service for 50+ clients, managing assignment tracking, usage monitoring, and cost control, boosting operational efficiency by 20%. • Automated workflows using Temporal, speeding up post-packing workflows and FBA (Fulfillment by Amazon) shipment creation, reducing manual efforts by 35%. • Implemented product bundle management, improving bundle tracking accuracy.
+`,
+            skills:
+              "Temporal.io, REST APIs, AWS, Microservices, MongoDB, Typescript, JavaScript, Node.js, Jest, GraphQL, Express.js",
+          },
+          {
+            id: 2,
+            jobTitle: "Software Development Engineer I",
+            company: "Hopstack",
+            duration: "Jan 2023 - Jun 2024",
+            description: `• Optimized database performance with MongoDB Atlas and Atlas Search indexes, reducing query response times by 400%, improving app responsiveness by 30%.
+• Architected a billing service for 50+ clients, managing assignment tracking, usage monitoring, and cost control, boosting operational efficiency by 20%.
+• Automated workflows using Temporal, speeding up post-packing workflows and FBA (Fulfillment by Amazon) shipment creation, reducing manual efforts by 35%.
+• Implemented product bundle management, improving bundle tracking accuracy.• Optimized database performance with MongoDB Atlas and Atlas Search indexes, reducing query response times by 400%, improving app responsiveness by 30%. • Architected a billing service for 50+ clients, managing assignment tracking, usage monitoring, and cost control, boosting operational efficiency by 20%. • Automated workflows using Temporal, speeding up post-packing workflows and FBA (Fulfillment by Amazon) shipment creation, reducing manual efforts by 35%. • Implemented product bundle management, improving bundle tracking accuracy.
+`,
+            skills:
+              "Temporal.io, REST APIs, AWS, Microservices, MongoDB, Typescript, JavaScript, Node.js, Jest, GraphQL, Express.js",
+          },
+          {
+            id: 3,
+            jobTitle: "Software Development Engineer Intern",
+            company: "Hopstack",
+            duration: "Jan 2022 - Dec 2022",
+            description: `• Developed 12+ API integrations (REST, GraphQL, SOAP), and npm packages expanding system capabilities and improving external service interoperability, supporting 5+ external partners.
+• Developed EDI (Electronic Data Interchange) flows, streamlining B2B transactions between 2 major partners, ensuring data is accurately converted to user-friendly formats, improving transaction time by 10%.`,
+            skills:
+              "Temporal.io, REST APIs, AWS, Microservices, MongoDB, Typescript, JavaScript, Node.js, Jest, GraphQL, Express.js",
+          },
+          {
+            id: 4,
+            jobTitle: "Backend Developer Intern",
+            company: "Hopstack",
+            duration: "Sep 2021 - Dec 2021",
+            description: `• Created a dashboard using Redash and MongoDB Aggregation, tracking daily usage for 100+ active users.
+• Built and Deployed a microservice for real-time notifications, increasing user engagement by 30%.
+• Managed AWS services (EC2, ECR, ECS, SNS, SQS), handling 10,000+ daily requests and ensuring scalability.
+• Built REST APIs for managing activity logs and workspace details, improving data accuracy by 15%.`,
+            skills:
+              "Socket.io, Redash, Redis, Firebase, REST APIs, AWS, Microservices, MongoDB, JavaScript, Node.js, Express.js",
+          },
+        ],
+        skills: [
+          "Typescript",
+          "JavaScript",
+          "Node.js",
+          "Nest.js",
+          "React",
+          "MongoDB",
+          "Express.js",
+          "GraphQL",
+          "REST APIs",
+          "AWS",
+          "Microservices",
+          "Jest",
+          "HTML",
+          "CSS",
+          "SASS",
+          "Bootstrap",
+          "Git",
+          "Docker",
+        ],
+        projects: [
+          {
+            id: 1,
+            name: "Share Hub",
+            description:
+              "A platform where people of the same community can share useful stuff that can benefit the whole community.",
+            techUsed: "MERN",
+          },
+          {
+            id: 2,
+            name: "VFIN",
+            description:
+              "A Vehicle Finance Platform for Agents to easily recover and track loans of a vehicle",
+            techUsed: "PHP, MySQL",
+          },
+        ],
+      };
+
+      // Populate Data into HTML
+      document.getElementById("name").innerText = data.contacts.name;
+      document.getElementById("description").innerText =
+        "Welcome to my portfolio! Connect with me through the links below.";
+      document.getElementById("email").innerText = data.contacts.email;
+      document.getElementById("address").innerText = data.contacts.address;
+
+      const contactLinks = document.getElementById("contact-links");
+      contactLinks.innerHTML = `
+            <a href="${data.contacts.linkedin}" target="_blank">LinkedIn</a>
+            <a href="${data.contacts.github}" target="_blank">GitHub</a>
+            <a href="${data.contacts.x}" target="_blank">X</a>
+        `;
+
+      const experienceList = document.getElementById("experience-list");
+      data.experiences.forEach((exp) => {
+        const expCard = document.createElement("div");
+        expCard.classList.add("card");
+        expCard.innerHTML = `
+                <h3>${exp.jobTitle} at ${exp.company}</h3>
+                <p><strong>Duration:</strong> ${exp.duration}</p>
+                <p>${exp.description}</p>
+                <p><strong>Skills Used:</strong> ${exp.skills}</p>
+            `;
+        experienceList.appendChild(expCard);
+      });
+
+      const educationList = document.getElementById("education-list");
+      data.education.forEach((edu) => {
+        const eduCard = document.createElement("div");
+        eduCard.classList.add("card");
+        eduCard.innerHTML = `
+                <h3>${edu.degree} at ${edu.institute}</h3>
+                <p><strong>Duration:</strong> ${edu.duration}</p>
+                <p><strong>Courses:</strong> ${edu.courses}</p>
+            `;
+        educationList.appendChild(eduCard);
+      });
+
+      const skillsList = document.getElementById("skills-list");
+      data.skills.forEach((skill) => {
+        const skillItem = document.createElement("div");
+        skillItem.classList.add("skill-item");
+        skillItem.innerText = skill;
+        skillsList.appendChild(skillItem);
+      });
+
+      const projectsList = document.getElementById("projects-list");
+      data.projects.forEach((proj) => {
+        const projCard = document.createElement("div");
+        projCard.classList.add("card");
+        projCard.innerHTML = `
+                <h3>${proj.name}</h3>
+                <p>${proj.description}</p>
+                <p><strong>Tech Used:</strong> ${proj.techUsed}</p>
+            `;
+        projectsList.appendChild(projCard);
+      });
+    </script>
+  </body>
+</html>
