@@ -46,7 +46,7 @@ const About = () => {
             <SocialIcon
               // icon={leetcodeIcon}
               icon="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/LeetCode_Logo_black_with_text.svg/916px-LeetCode_Logo_black_with_text.svg.png"
-              url={data.personalDetails?.linkedin}
+              url={data.personalDetails?.leetcode}
               alt="leetcode"
             />
           </div>
