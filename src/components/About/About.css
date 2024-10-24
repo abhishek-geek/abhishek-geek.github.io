@@ -1,0 +1,54 @@
+.about {
+  padding: 2rem;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Align items vertically */
+  min-height: 50vh; /* Full viewport height */
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the content */
+  flex-wrap: wrap; /* Wrap items on smaller screens */
+  max-width: 1200px; /* Max width for larger screens */
+  width: 100%; /* Take full width on small screens */
+}
+
+.about-text {
+  flex: 1; /* Allow text to take available space */
+  max-width: 600px; /* Limit width for better readability */
+  text-align: center; /* Center text */
+  color: #000;
+}
+
+.about-image {
+  width: 250px; /* Set image width */
+  height: auto; /* Maintain aspect ratio */
+  margin-left: 20px; /* Spacing between text and image */
+  border-radius: 10px; /* Optional: rounded corners */
+}
+
+.links {
+  display: flex;
+  gap: 10px; /* Space between social icons */
+  justify-content: center; /* Center icons */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column; /* Stack elements vertically on mobile */
+    align-items: center; /* Center align items */
+  }
+
+  .about-image {
+    width: 200px; /* Reduce image size on mobile */
+    margin-left: 0; /* Remove left margin */
+    margin-top: 20px; /* Add top margin for spacing */
+  }
+
+  .about-text {
+    text-align: center; /* Center text on mobile */
+  }
+}

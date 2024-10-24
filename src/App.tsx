@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import logo from "./logo.svg";
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+// import Introduction from './components/Introduction'; // Create this component
+// import Experiences from './components/Experiences'; // Create this component
+// import Education from './components/Education'; // Create this component
+// import Skills from './components/Skills'; // Create this component
+// import Projects from './components/Projects'; // Create this component
+// import Contact from './components/Contact'; // Create this component
+import About from "./components/About/About";
+import Experience from "./components/Experience/Experience";
+
+/**
+ * 
+ *        {/* <Router>
+        <Navbar />
+        <About />
+      <Experience /> 
+        <Routes>
+        <Route path="/" element={<About />} />
+        <Route path="/experiences" element={<Experience />} />
+         <Route path="/education" component={Education} />
+        <Route path="/skills" component={Skills} />
+        <Route path="/projects" component={Projects} />
+        <Route path="/contact" component={Contact} /> 
+              </Routes>
+       </Router> }
+ */
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <About />
+      <Experience />
     </div>
   );
 }

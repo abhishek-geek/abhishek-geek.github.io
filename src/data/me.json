@@ -1,0 +1,179 @@
+{
+  "personalDetails": {
+    "name": {
+      "first": "Abhishek",
+      "last": "Dubey"
+    },
+    "role": "Software Engineer",
+    "description": "I am a Software Engineer with a strong foundation in computer science and experience in software development. I am passionate about building scalable software applications, creating effective solutions, and learning new technologies. I am a quick learner, a team player, and a problem solver with excellent communication skills.",
+    "email": "abhishekdubey825@gmail.com",
+    "phone": {
+      "prefixCode": "+91",
+      "number": "7398904791"
+    },
+    "currentLocation": {
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "country": "India"
+    },
+    "linkedin": "https://www.linkedin.com/in/abhishekdubey825",
+    "github": "https://github.com/abhishek-geek",
+    "x": "https://x.com/Abhishek_825",
+    "resumeLink": "https://drive.google.com/file/d/1jUXySiEIwmxqgGhBvKPBaa1Jt0ebIYho/view"
+  },
+  "workExperiences": [
+    {
+      "id": 1,
+      "jobTitle": "Software Development Engineer II",
+      "company": "Hopstack",
+      "companyWebsite": "https://www.hopstack.io",
+      "duration": "Jul 2024 - Present",
+      "description": [
+        "Designed and implemented core Warehouse Management System (WMS) modules, including Purchase Orders, handling over 500+ daily transactions."
+      ],
+      "skills": [
+        "Temporal.io",
+        "REST APIs",
+        "AWS",
+        "Microservices",
+        "MongoDB",
+        "Typescript",
+        "JavaScript",
+        "Node.js",
+        "Jest"
+      ]
+    },
+    {
+      "id": 2,
+      "jobTitle": "Software Development Engineer I",
+      "company": "Hopstack",
+      "companyWebsite": "https://www.hopstack.io",
+      "duration": "Jul 2024 - Present",
+      "description": [
+        "Optimized database performance with MongoDB Atlas and Atlas Search indexes, reducing query response times by 400%, improving app responsiveness by 30%.",
+        "Architected a billing service for 50+ clients, managing assignment tracking, usage monitoring, and cost control, boosting operational efficiency by 20%.",
+        "Automated workflows using Temporal, speeding up post-packing workflows and FBA (Fulfillment by Amazon) shipment creation, reducing manual efforts by 35%.",
+        "Implemented product bundle management, improving bundle tracking accuracy."
+      ],
+      "skills": [
+        "Temporal.io",
+        "REST APIs",
+        "AWS",
+        "Microservices",
+        "MongoDB",
+        "Typescript",
+        "JavaScript",
+        "Node.js",
+        "Jest",
+        "GraphQL",
+        "Express.js"
+      ]
+    },
+    {
+      "id": 3,
+      "jobTitle": "Software Development Engineer Intern",
+      "company": "Hopstack",
+      "companyWebsite": "https://www.hopstack.io",
+      "duration": "Jan 2022 - Dec 2022",
+      "description": [
+        "Developed 12+ API integrations (REST, GraphQL, SOAP), and npm packages expanding system capabilities and improving external service interoperability, supporting 5+ external partners.",
+        "Developed EDI (Electronic Data Interchange) flows, streamlining B2B transactions between 2 major partners, ensuring data is accurately converted to user-friendly formats, improving transaction time by 10%."
+      ],
+      "skills": [
+        "Temporal.io",
+        "REST APIs",
+        "AWS",
+        "Microservices",
+        "MongoDB",
+        "Typescript",
+        "JavaScript",
+        "Node.js",
+        "Jest",
+        "GraphQL",
+        "Express.js"
+      ]
+    },
+    {
+      "id": 4,
+      "jobTitle": "Backend Developer Intern",
+      "company": "The Butter App",
+      "duration": "Sep 2021 - Dec 2021",
+      "description": [
+        "Created a dashboard using Redash and MongoDB Aggregation tracking daily usage for 100+ active users.",
+        "Built and Deployed a microservice for real-time notifications increasing user engagement by 30%.",
+        "Managed AWS services (EC2, ECR, ECS, SNS, SQS) handling 10000+ daily requests and ensuring scalability",
+        "Built REST APIs for managing activity logs and workspace details improving data accuracy by 15%."
+      ],
+      "skills": [
+        "Socket.io",
+        "Redash",
+        "Redis",
+        "Firebase",
+        "REST APIs",
+        "AWS",
+        "Microservices",
+        "MongoDB",
+        "JavaScript",
+        "Node.js",
+        "Express.js",
+        "Jest",
+        "GraphQL",
+        "Typescript"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "institute": "IIIT Jabalpur",
+      "duration": "Jul 2019 - Apr 2023",
+      "degree": "B.Tech in Computer Science & Engineering",
+      "courses": "Data Structures, Algorithms, Computer Networks, Database Management"
+    }
+  ],
+  "personalProjects": [
+    {
+      "id": 1,
+      "name": "GrainShield : Grain Moisture Detection",
+      "description": "Engineered an IoT system for real-time grain moisture monitoring, cutting grain loss by 30%.",
+      "links": [
+        {
+          "name": "Patent Link:",
+          "url": "https://drive.google.com/file/d/11Vk2EtDXpbRno8hXi2HnxX0JtBcniR9H/view"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Zournal",
+      "description": "A solution to make journaling easy by tracking daily tasks, notes, and upcoming events.",
+      "links": [
+        {
+          "name": "Github Link:",
+          "url": "https://github.com/abhishek-geek/zournal"
+        }
+      ],
+      "techUsed": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "TypeScript",
+        "Redux",
+        "Google OAuth 2"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Vehicle Finance Management System",
+      "description": "Designed a DBMS for bank agents to manage vehicle loans, boosting recovery efficiency by 20%.",
+      "links": [
+        {
+          "name": "Github Link:",
+          "url": "https://github.com/abhishek-geek/vfin"
+        }
+      ],
+      "techUsed": ["MySQL", "WAMP", "HTML/CSS", "PHP"]
+    }
+  ]
+}

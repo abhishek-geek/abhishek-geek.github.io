@@ -1,0 +1,71 @@
+.experience-item {
+  background-color: #FFFDF2;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem;
+  width: 100%;
+  max-width: 800px;
+  transition: transform 0.2s;
+}
+
+.experience-item:hover {
+  transform: translateY(-5px);
+}
+
+.job-title {
+  font-size: 1.6rem;
+  margin: 0;
+  color: #000000; /* Change as needed */
+}
+
+.company-name {
+  font-size: 1.3rem;
+  color: #ecf0f1; /* Change as needed */
+}
+
+.duration {
+  font-style: italic;
+  color: #bdc3c7; /* Change as needed */
+}
+
+.description {
+  margin: 1rem 0;
+}
+
+.description-line {
+  margin: 0.5rem 0;
+  color: #0a0b0c;
+  list-style-type: none;
+}
+
+.see-more {
+  background-color: #120f0f; /* Change as needed */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.see-more:hover {
+  background-color: #FFFDF2; /* Darker shade for hover */
+}
+
+.skills {
+  margin-top: 0.9rem;
+}
+
+.skill {
+  background-color: #FFFDF2; /* Change as needed */
+  color: white;
+  padding: 0.9rem;
+  border-radius: 4px;
+  margin-right: 5px;
+  font-size: 0.9rem;
+}
+
+a {
+  color: #000000; /* Change as needed */
+  text-decoration: none;
+}
