@@ -1,4 +1,12 @@
 /* Global styles */
+:root {
+  --white: #ffffff; /* White color */
+  --black: #000000; /* Black color */
+  --cream: #FFFDF2; /* Cream color */
+  --link-color: #e63946;
+  --link-glow-color: rgba(255, 165, 0, 0.6);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,9 +15,9 @@
 
 body {
   font-family: Arial, sans-serif; /* Change as per your font choice */
-  color: #FFFDF2; /* Text color */
+  color: var(--black); /* Text color */
   line-height: 1.6; /* Improve readability */
-  background-color: 970747; /* Background color */
+  background-color: var(--cream); /* Background color */
 }
 
 .section {
@@ -30,7 +38,7 @@ body {
 h1 {
   font-family: 'Arial', sans-serif; /* Font choice */
   font-size: 2.5rem; /* Size adjustment */
-  color: #000000; /* White-ish text color */
+  color: var(--black); /* White-ish text color */
   text-align: center; /* Center the text */
   position: relative; /* Relative positioning for the line elements */
   margin: 40px 0; /* Vertical margin */
@@ -43,7 +51,7 @@ h1::after {
   display: block;
   width: 60px; /* Width of the line */
   height: 2px; /* Thickness of the line */
-  background-color: #000000; /* Line color, reddish tone */
+  background-color: var(--black); /* Line color, reddish tone */
   margin: 10px auto; /* Center align the line */
 }
 

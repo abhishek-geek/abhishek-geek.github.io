@@ -19,6 +19,7 @@
     "linkedin": "https://www.linkedin.com/in/abhishekdubey825",
     "github": "https://github.com/abhishek-geek",
     "x": "https://x.com/Abhishek_825",
+    "leetcode": "https://leetcode.com/u/abhi_dev/",
     "resumeLink": "https://drive.google.com/file/d/1jUXySiEIwmxqgGhBvKPBaa1Jt0ebIYho/view"
   },
   "workExperiences": [
@@ -48,7 +49,7 @@
       "jobTitle": "Software Development Engineer I",
       "company": "Hopstack",
       "companyWebsite": "https://www.hopstack.io",
-      "duration": "Jul 2024 - Present",
+      "duration": "Jan 2023 - Jun 2024",
       "description": [
         "Optimized database performance with MongoDB Atlas and Atlas Search indexes, reducing query response times by 400%, improving app responsiveness by 30%.",
         "Architected a billing service for 50+ clients, managing assignment tracking, usage monitoring, and cost control, boosting operational efficiency by 20%.",
@@ -128,7 +129,12 @@
       "institute": "IIIT Jabalpur",
       "duration": "Jul 2019 - Apr 2023",
       "degree": "B.Tech in Computer Science & Engineering",
-      "courses": "Data Structures, Algorithms, Computer Networks, Database Management"
+      "courses": [
+        "Data Structures",
+        "Algorithms",
+        "Computer Networks",
+        "Database Management"
+      ]
     }
   ],
   "personalProjects": [
@@ -138,7 +144,7 @@
       "description": "Engineered an IoT system for real-time grain moisture monitoring, cutting grain loss by 30%.",
       "links": [
         {
-          "name": "Patent Link:",
+          "name": "Patent Link",
           "url": "https://drive.google.com/file/d/11Vk2EtDXpbRno8hXi2HnxX0JtBcniR9H/view"
         }
       ]
@@ -149,7 +155,7 @@
       "description": "A solution to make journaling easy by tracking daily tasks, notes, and upcoming events.",
       "links": [
         {
-          "name": "Github Link:",
+          "name": "Github Link",
           "url": "https://github.com/abhishek-geek/zournal"
         }
       ],
@@ -169,11 +175,68 @@
       "description": "Designed a DBMS for bank agents to manage vehicle loans, boosting recovery efficiency by 20%.",
       "links": [
         {
-          "name": "Github Link:",
+          "name": "Github Link",
           "url": "https://github.com/abhishek-geek/vfin"
         }
       ],
       "techUsed": ["MySQL", "WAMP", "HTML/CSS", "PHP"]
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "category": "Programming Languages",
+      "skills": [
+        "C",
+        "C++",
+        "JavaScript",
+        "TypeScript",
+        "Java",
+        "Python",
+        "SQL",
+        "HTML/CSS"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "Frameworks & Libraries",
+      "skills": [
+        "React.js",
+        "Node.js",
+        "Nest.js",
+        "Express.js",
+        "GraphQl",
+        "Socket.io",
+        "Temporal.io"
+      ]
+    },
+    {
+      "id": 3,
+      "category": "Database",
+      "skills": ["MongoDB", "Redis", "MySQL", "Firebase"]
+    },
+    {
+      "id": 4,
+      "category": "Cloud & DevOps Tools",
+      "skills": [
+        "AWS (EC2, ECR, ECS, S3, ElastiCache, SNS, SQS)",
+        "Docker",
+        "Git",
+        "GitHub",
+        "VS Code",
+        "Postman",
+        "Linux"
+      ]
+    },
+    {
+      "id": 5,
+      "category": "Methodologies",
+      "skills": ["Agile", "Test-Driven Development (TDD)", "CI/CD Pipelines"]
+    },
+    {
+      "id": 6,
+      "category": "API Development",
+      "skills": ["REST", "GraphQL", "SOAP"]
     }
   ]
 }

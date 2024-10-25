@@ -45,5 +45,11 @@
 }
 
 .navbar-links a:hover {
-  color: #ffffff; /* Change text color to white on hover */
+  border: 1px solid var(--black); /* Add border on hover */
+}
+
+@media (max-width: 560px) {
+  .navbar-links {
+    display: none;
+  }
 }

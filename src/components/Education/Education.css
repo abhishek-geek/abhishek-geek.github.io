@@ -1,0 +1,45 @@
+.education-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.education-item {
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.degree {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.school {
+    font-size: 1.3rem;
+}
+
+.duration {
+    font-style: italic;
+}
+
+.cources {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+
+.cource {
+    background-color: var(--cream);
+    color: var(--black);
+    border: 1px solid var(--black);
+    padding: 0.5rem;
+    border-radius: 4px;
+    list-style-type: none;
+}

@@ -1,7 +1,4 @@
-// src/components/Experience/ExperienceItem.js
-
 import React, { useState } from "react";
-import Popup from "../Popup/Popup"; // Adjust path if necessary
 import "./ExperienceItem.css";
 
 const ExperienceItem = ({
@@ -18,19 +15,6 @@ const ExperienceItem = ({
   };
 }) => {
   const [showMore, setShowMore] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
-
-  const toggleShowMore = () => {
-    setShowMore(!showMore);
-  };
-
-  const openPopup = () => {
-    setShowPopup(true);
-  };
-
-  const closePopup = () => {
-    setShowPopup(false);
-  };
 
   return (
     <div className="experience-item">
@@ -64,19 +48,13 @@ const ExperienceItem = ({
           Show Less
         </button>
       )}
-      <div className="skills">
+      {/* <div className="skills">
         {experience.skills.map((skill: string, index: number) => (
           <span className="skill" key={index}>
             {skill}
           </span>
         ))}
-      </div>
-      {showPopup && (
-        <Popup
-          descriptions={experience.description.slice(1)}
-          onClose={closePopup}
-        />
-      )}
+      </div> */}
     </div>
   );
 };
