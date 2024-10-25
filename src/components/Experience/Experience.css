@@ -2,7 +2,7 @@
 
 .experience {
   padding: 2rem;
-  color: #FFFDF2;
+  color: var(--black);
 }
 
 .experience h1 {
