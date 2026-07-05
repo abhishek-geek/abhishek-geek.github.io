@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import App from "../App";
 import profileData from "../data/me.json";
 import type { Profile } from "../types";
@@ -38,12 +39,39 @@ describe("App", () => {
     expect(screen.getByRole("heading", { name: "Education" })).toBeInTheDocument();
 
     for (const job of profile.workExperiences) {
-      expect(screen.getByText(job.jobTitle)).toBeInTheDocument();
+      expect(screen.getAllByText(job.jobTitle).length).toBeGreaterThan(0);
     }
     for (const project of profile.personalProjects) {
       expect(screen.getByText(project.name)).toBeInTheDocument();
     }
     expect(screen.getByText(profile.education[0].institute)).toBeInTheDocument();
+  });
+
+  it("does not render a résumé link", () => {
+    render(<App />);
+    expect(screen.queryByRole("link", { name: /résumé|resume/i })).toBeNull();
+  });
+
+  it("toggles between dark and light theme and persists the choice", async () => {
+    localStorage.clear();
+    document.documentElement.dataset.theme = "";
+    render(<App />);
+
+    const toggle = screen.getByRole("button", { name: /switch to light theme/i });
+    expect(document.documentElement.dataset.theme).toBe("dark");
+
+    await userEvent.click(toggle);
+    expect(document.documentElement.dataset.theme).toBe("light");
+    expect(localStorage.getItem("theme")).toBe("light");
+    expect(
+      screen.getByRole("button", { name: /switch to dark theme/i })
+    ).toBeInTheDocument();
+
+    await userEvent.click(
+      screen.getByRole("button", { name: /switch to dark theme/i })
+    );
+    expect(document.documentElement.dataset.theme).toBe("dark");
+    expect(localStorage.getItem("theme")).toBe("dark");
   });
 
   it("links contact actions to the email in me.json", () => {

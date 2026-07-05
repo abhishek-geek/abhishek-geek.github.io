@@ -18,17 +18,35 @@
     },
     "linkedin": "https://www.linkedin.com/in/abhishekdubey825",
     "github": "https://github.com/abhishek-geek",
-    "x": "https://x.com/Abhishek_825",
+    "x": "https://x.com/byAbhishekDubey",
     "leetcode": "https://leetcode.com/u/abhi_dev/",
     "resumeLink": "https://drive.google.com/file/d/1jUXySiEIwmxqgGhBvKPBaa1Jt0ebIYho/view"
   },
   "workExperiences": [
     {
+      "id": 5,
+      "jobTitle": "Software Development Engineer II",
+      "company": "HighLevel",
+      "companyWebsite": "https://www.gohighlevel.com",
+      "duration": "2025 - Present",
+      "description": [
+        "Building and scaling backend services for the HighLevel platform."
+      ],
+      "skills": [
+        "Node.js",
+        "NestJS",
+        "TypeScript",
+        "MongoDB",
+        "Redis",
+        "Microservices"
+      ]
+    },
+    {
       "id": 1,
       "jobTitle": "Software Development Engineer II",
       "company": "Hopstack",
       "companyWebsite": "https://www.hopstack.io",
-      "duration": "Jul 2024 - Present",
+      "duration": "Jul 2024 - 2025",
       "description": [
         "Designed and implemented core Warehouse Management System (WMS) modules, including Purchase Orders, handling over 500+ daily transactions."
       ],

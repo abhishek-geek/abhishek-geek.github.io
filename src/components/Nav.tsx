@@ -1,4 +1,5 @@
 import type { PersonalDetails } from "../types";
+import ThemeToggle from "./ThemeToggle";
 
 interface NavProps {
   details: PersonalDetails;
@@ -28,14 +29,7 @@ export default function Nav({ details }: NavProps) {
           </li>
         ))}
       </ul>
-      <a
-        className="nav__resume"
-        href={details.resumeLink}
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        Résumé
-      </a>
+      <ThemeToggle />
     </nav>
   );
 }
