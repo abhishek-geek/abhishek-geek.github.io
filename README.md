@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio of Abhishek Dubey. Dark editorial design, built with Vite + React + TypeScript.
 
-## Available Scripts
+## Updating content
 
-In the project directory, you can run:
+All site content lives in one file: [`src/data/me.json`](src/data/me.json)
+(schema reference: [`src/data/me.schema.json`](src/data/me.schema.json)).
 
-### `npm start`
+Edit the JSON — personal details, work experience, projects, skills, education — and the
+site re-renders from it. No component changes needed. The portrait photo lives at
+`src/assets/images/me.jpg`; replace the file to update it.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Scripts
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+| Command           | What it does                              |
+| ----------------- | ----------------------------------------- |
+| `npm run dev`     | Dev server at http://localhost:5173       |
+| `npm test`        | Vitest suite (data contract + rendering)  |
+| `npm run build`   | Type-check + production build into `dist` |
+| `npm run preview` | Serve the production build locally        |
+| `npm run deploy`  | Build and publish `dist` to `gh-pages`    |
 
-### `npm test`
+## Domains
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The repo carries no domain configuration — deploys publish `dist` as-is. Domain
+setup (DNS records, GitHub Pages custom domain) is managed separately in the
+DNS provider and repo settings.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Note: `npm run deploy` replaces the `gh-pages` branch. If a custom domain is set
+in repo settings, GitHub stores it as a `CNAME` file on that branch, and the next
+deploy will wipe it — re-enter the custom domain in settings after deploying, or
+deploy with `npx gh-pages -d dist --add`.

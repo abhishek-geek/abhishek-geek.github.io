@@ -1,22 +1,27 @@
-import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
-import About from "./components/About/About";
-import Experience from "./components/Experience/Experience";
-import Skills from "./components/Skills/Skills";
-import Education from "./components/Education/Education";
-import Projects from "./components/Projects/Projects";
+import profileData from "./data/me.json";
+import type { Profile } from "./types";
+import Nav from "./components/Nav";
+import Hero from "./components/Hero";
+import Experience from "./components/Experience";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import EducationSection from "./components/EducationSection";
+import Footer from "./components/Footer";
 
-function App() {
+const profile = profileData as Profile;
+
+export default function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <About />
-      <Experience />
-      <Skills />
-      <Education />
-      <Projects />
-    </div>
+    <>
+      <Nav details={profile.personalDetails} />
+      <main>
+        <Hero details={profile.personalDetails} />
+        <Experience items={profile.workExperiences} />
+        <Projects items={profile.personalProjects} />
+        <Skills categories={profile.skills} />
+        <EducationSection items={profile.education} />
+      </main>
+      <Footer details={profile.personalDetails} />
+    </>
   );
 }
-
-export default App;
