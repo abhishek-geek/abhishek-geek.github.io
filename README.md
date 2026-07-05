@@ -1,4 +1,4 @@
-# Portfolio — portfolio.byabhishekdubey.com
+# Portfolio
 
 Personal portfolio of Abhishek Dubey. Dark editorial design, built with Vite + React + TypeScript.
 
@@ -21,11 +21,13 @@ site re-renders from it. No component changes needed. The portrait photo lives a
 | `npm run preview` | Serve the production build locally        |
 | `npm run deploy`  | Build and publish `dist` to `gh-pages`    |
 
-## Custom domain
+## Domains
 
-`public/CNAME` pins the site to `portfolio.byabhishekdubey.com`. For GitHub Pages to serve it:
+The repo carries no domain configuration — deploys publish `dist` as-is. Domain
+setup (DNS records, GitHub Pages custom domain) is managed separately in the
+DNS provider and repo settings.
 
-1. In the DNS provider for `byabhishekdubey.com`, add a CNAME record:
-   `portfolio` → `abhishek-geek.github.io`
-2. In the repo settings → Pages, set the custom domain to
-   `portfolio.byabhishekdubey.com` and enable **Enforce HTTPS**.
+Note: `npm run deploy` replaces the `gh-pages` branch. If a custom domain is set
+in repo settings, GitHub stores it as a `CNAME` file on that branch, and the next
+deploy will wipe it — re-enter the custom domain in settings after deploying, or
+deploy with `npx gh-pages -d dist --add`.
