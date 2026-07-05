@@ -65,24 +65,24 @@ describe("App", () => {
     }
   });
 
-  it("defaults to light theme, toggles to dark, and persists the choice", async () => {
+  it("defaults to dark theme, toggles to light, and persists the choice", async () => {
     localStorage.clear();
     document.documentElement.dataset.theme = "";
     render(<App />);
 
-    const toggle = screen.getByRole("button", { name: /switch to dark theme/i });
-    expect(document.documentElement.dataset.theme).toBe("light");
-    expect(toggle).toHaveTextContent("Dark");
+    const toggle = screen.getByRole("button", { name: /switch to light theme/i });
+    expect(document.documentElement.dataset.theme).toBe("dark");
+    expect(toggle).toHaveTextContent("Light");
 
     await userEvent.click(toggle);
-    expect(document.documentElement.dataset.theme).toBe("dark");
-    expect(localStorage.getItem("theme")).toBe("dark");
-
-    await userEvent.click(
-      screen.getByRole("button", { name: /switch to light theme/i })
-    );
     expect(document.documentElement.dataset.theme).toBe("light");
     expect(localStorage.getItem("theme")).toBe("light");
+
+    await userEvent.click(
+      screen.getByRole("button", { name: /switch to dark theme/i })
+    );
+    expect(document.documentElement.dataset.theme).toBe("dark");
+    expect(localStorage.getItem("theme")).toBe("dark");
   });
 
   it("links contact actions to the email in me.json", () => {

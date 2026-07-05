@@ -15,15 +15,7 @@ function readStoredTheme(): Theme | null {
 }
 
 function getInitialTheme(): Theme {
-  const stored = readStoredTheme();
-  if (stored) return stored;
-  if (
-    typeof window.matchMedia === "function" &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  ) {
-    return "dark";
-  }
-  return "light";
+  return readStoredTheme() ?? "dark";
 }
 
 export function useTheme() {

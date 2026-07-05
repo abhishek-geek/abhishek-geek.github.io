@@ -1,17 +1,17 @@
 /* ---------------------------------------------------------------------------
-   Design tokens — sand & ink with indigo accent
-   Light (sand) is the default; [data-theme="dark"] flips to near-black.
+   Design tokens — ink & sand with green accent
+   Dark (near-black) is the default; [data-theme="light"] flips to sand.
 --------------------------------------------------------------------------- */
 :root {
-  --bg: #ece6d8;
-  --card: #f3eee3;
-  --fg: #211d15;
-  --muted: #726d61;
-  --line: rgba(33, 29, 21, 0.13);
-  --accent: #4f39ec;
+  --bg: #0c0d0f;
+  --card: #141518;
+  --fg: #edeae3;
+  --muted: #8b8880;
+  --line: rgba(255, 255, 255, 0.13);
+  --accent: #0f9d6b;
   --accent-fg: #ffffff;
   --ok: #16b364;
-  color-scheme: light;
+  color-scheme: dark;
 
   --font-display: "Bricolage Grotesque", "Arial Black", sans-serif;
   --font-body: "Hanken Grotesk", system-ui, sans-serif;
@@ -21,13 +21,13 @@
   --gutter: clamp(20px, 5vw, 64px);
 }
 
-[data-theme="dark"] {
-  --bg: #0c0d0f;
-  --card: #141518;
-  --fg: #edeae3;
-  --muted: #8b8880;
-  --line: rgba(255, 255, 255, 0.13);
-  color-scheme: dark;
+[data-theme="light"] {
+  --bg: #ece6d8;
+  --card: #f3eee3;
+  --fg: #211d15;
+  --muted: #726d61;
+  --line: rgba(33, 29, 21, 0.13);
+  color-scheme: light;
 }
 
 /* ---------------------------------------------------------------------------

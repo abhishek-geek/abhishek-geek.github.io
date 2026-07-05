@@ -7,7 +7,7 @@
       name="description"
       content="Abhishek Dubey — Software Engineer. Portfolio, work experience, and projects."
     />
-    <meta name="theme-color" content="#12100d" />
+    <meta name="theme-color" content="#0c0d0f" />
     <link rel="icon" type="image/png" href="/image.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,19 +19,14 @@
     <script>
       // Apply saved/system theme before first paint to avoid a flash.
       (function () {
-        var theme = "light";
+        var theme = "dark";
         try {
           var stored = localStorage.getItem("theme");
           if (stored === "light" || stored === "dark") {
             theme = stored;
-          } else if (
-            window.matchMedia &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches
-          ) {
-            theme = "dark";
           }
         } catch (e) {
-          // Storage unavailable — keep light default.
+          // Storage unavailable — keep dark default.
         }
         document.documentElement.dataset.theme = theme;
       })();
