@@ -1,44 +1,50 @@
 import type { PersonalDetails } from "../types";
 import SocialLinks from "./SocialLinks";
-import portrait from "../assets/images/me.jpg";
 
 interface HeroProps {
   details: PersonalDetails;
 }
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export default function Hero({ details }: HeroProps) {
-  const { name, role, description, currentLocation, email } = details;
+  const { name, role, tagline, status, currentLocation, email } = details;
 
   return (
-    <header id="top" className="hero">
-      <div className="hero__inner">
-        <div className="hero__text">
-          <p className="hero__kicker">
-            {currentLocation.city}, {currentLocation.country} — {role}
-          </p>
-          <h1 className="hero__name">
-            {name.first}
-            <br />
-            <em>{name.last}</em>
-          </h1>
-          <p className="hero__desc">{description}</p>
-          <div className="hero__actions">
-            <a className="button button--primary" href={`mailto:${email}`}>
-              Get in touch
-            </a>
-            <a className="button" href="#experience">
-              See my work
-            </a>
-          </div>
-          <SocialLinks details={details} className="hero__social" />
-        </div>
-        <figure className="hero__portrait">
-          <img src={portrait} alt={`Portrait of ${name.first} ${name.last}`} />
-        </figure>
+    <header className="hero">
+      <p className="hero__kicker rise rise-1">
+        <span>{role}</span>
+        <span className="hero__slash" aria-hidden="true">
+          /
+        </span>
+        <span>
+          {currentLocation.city}, {currentLocation.country}
+        </span>
+        <span className="hero__slash" aria-hidden="true">
+          /
+        </span>
+        <span>{CURRENT_YEAR}</span>
+      </p>
+      <h1 className="hero__name">
+        <span className="rise rise-2">{name.first}</span>
+        <span className="rise rise-3">
+          {name.last}
+          <em className="accent">.</em>
+        </span>
+      </h1>
+      <div className="hero__row">
+        <p className="hero__tagline rise rise-4">{tagline}</p>
+        <p className="hero__status rise rise-5">
+          <span className="hero__pulse" aria-hidden="true" />
+          {status}
+        </p>
       </div>
-      <a className="hero__scroll" href="#experience" aria-hidden="true" tabIndex={-1}>
-        scroll
-      </a>
+      <div className="hero__actions rise rise-6">
+        <a className="button-primary" href={`mailto:${email}`}>
+          Get in touch <span className="button-primary__arrow">↗</span>
+        </a>
+        <SocialLinks details={details} />
+      </div>
     </header>
   );
 }

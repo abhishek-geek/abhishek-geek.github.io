@@ -20,124 +20,161 @@
     "github": "https://github.com/abhishek-geek",
     "x": "https://x.com/byAbhishekDubey",
     "leetcode": "https://leetcode.com/u/abhi_dev/",
-    "resumeLink": "https://drive.google.com/file/d/1jUXySiEIwmxqgGhBvKPBaa1Jt0ebIYho/view"
+    "resumeLink": "https://drive.google.com/file/d/1jUXySiEIwmxqgGhBvKPBaa1Jt0ebIYho/view",
+    "tagline": "I build scalable backend systems and thoughtful software. Currently a Software Development Engineer II at HighLevel, working across Node.js, distributed services, and data at scale.",
+    "status": "Open to conversations"
   },
-  "workExperiences": [
-    {
-      "id": 5,
-      "jobTitle": "Software Development Engineer II",
-      "company": "HighLevel",
-      "companyWebsite": "https://www.gohighlevel.com",
-      "duration": "2025 - Present",
-      "description": [
-        "Building and scaling backend services for the HighLevel platform."
-      ],
-      "skills": [
-        "Node.js",
-        "NestJS",
-        "TypeScript",
-        "MongoDB",
-        "Redis",
-        "Microservices"
-      ]
-    },
+  "about": {
+    "statement": "A quick learner and problem-solver who likes shipping things that scale.",
+    "body": "I'm a Software Engineer with a strong computer-science foundation and hands-on experience building production systems. I care about clean architecture, effective solutions, and picking up new technologies fast — and I do my best work as part of a team with clear communication.",
+    "focus": "Backend · Distributed systems · APIs",
+    "experienceSummary": "4+ years shipping"
+  },
+  "marquee": [
+    "Node.js",
+    "TypeScript",
+    "MongoDB",
+    "AWS",
+    "Temporal.io",
+    "NestJS",
+    "Redis",
+    "GraphQL",
+    "Microservices",
+    "Distributed Systems"
+  ],
+  "companies": [
     {
       "id": 1,
-      "jobTitle": "Software Development Engineer II",
-      "company": "Hopstack",
-      "companyWebsite": "https://www.hopstack.io",
-      "duration": "Jul 2024 - 2025",
-      "description": [
-        "Designed and implemented core Warehouse Management System (WMS) modules, including Purchase Orders, handling over 500+ daily transactions."
-      ],
-      "skills": [
-        "Temporal.io",
-        "REST APIs",
-        "AWS",
-        "Microservices",
-        "MongoDB",
-        "Typescript",
-        "JavaScript",
-        "Node.js",
-        "Jest"
+      "company": "HighLevel",
+      "website": "https://www.gohighlevel.com",
+      "span": "2025 - Present",
+      "tenure": "Current",
+      "roles": [
+        {
+          "title": "Software Development Engineer II",
+          "period": "2025 - Present",
+          "current": true,
+          "description": [
+            "Building and scaling backend services for the HighLevel platform."
+          ],
+          "skills": [
+            "Node.js",
+            "NestJS",
+            "TypeScript",
+            "MongoDB",
+            "Redis",
+            "Microservices"
+          ]
+        }
       ]
     },
     {
       "id": 2,
-      "jobTitle": "Software Development Engineer I",
       "company": "Hopstack",
-      "companyWebsite": "https://www.hopstack.io",
-      "duration": "Jan 2023 - Jun 2024",
-      "description": [
-        "Optimized database performance with MongoDB Atlas and Atlas Search indexes, reducing query response times by 400%, improving app responsiveness by 30%.",
-        "Architected a billing service for 50+ clients, managing assignment tracking, usage monitoring, and cost control, boosting operational efficiency by 20%.",
-        "Automated workflows using Temporal, speeding up post-packing workflows and FBA (Fulfillment by Amazon) shipment creation, reducing manual efforts by 35%.",
-        "Implemented product bundle management, improving bundle tracking accuracy."
-      ],
-      "skills": [
-        "Temporal.io",
-        "REST APIs",
-        "AWS",
-        "Microservices",
-        "MongoDB",
-        "Typescript",
-        "JavaScript",
-        "Node.js",
-        "Jest",
-        "GraphQL",
-        "Express.js"
+      "website": "https://www.hopstack.io",
+      "span": "Jan 2022 - 2025",
+      "tenure": "3 yrs · 3 roles",
+      "roles": [
+        {
+          "title": "Software Development Engineer II",
+          "period": "Jul 2024 - 2025",
+          "current": false,
+          "description": [
+            "Designed and implemented core Warehouse Management System (WMS) modules, including Purchase Orders, handling over 500+ daily transactions."
+          ],
+          "skills": [
+            "Temporal.io",
+            "REST APIs",
+            "AWS",
+            "Microservices",
+            "MongoDB",
+            "Typescript",
+            "JavaScript",
+            "Node.js",
+            "Jest"
+          ]
+        },
+        {
+          "title": "Software Development Engineer I",
+          "period": "Jan 2023 - Jun 2024",
+          "current": false,
+          "description": [
+            "Optimized database performance with MongoDB Atlas and Atlas Search indexes, reducing query response times by 400%, improving app responsiveness by 30%.",
+            "Architected a billing service for 50+ clients, managing assignment tracking, usage monitoring, and cost control, boosting operational efficiency by 20%.",
+            "Automated workflows using Temporal, speeding up post-packing workflows and FBA (Fulfillment by Amazon) shipment creation, reducing manual efforts by 35%.",
+            "Implemented product bundle management, improving bundle tracking accuracy."
+          ],
+          "skills": [
+            "Temporal.io",
+            "REST APIs",
+            "AWS",
+            "Microservices",
+            "MongoDB",
+            "Typescript",
+            "JavaScript",
+            "Node.js",
+            "Jest",
+            "GraphQL",
+            "Express.js"
+          ]
+        },
+        {
+          "title": "Software Development Engineer Intern",
+          "period": "Jan 2022 - Dec 2022",
+          "current": false,
+          "description": [
+            "Developed 12+ API integrations (REST, GraphQL, SOAP), and npm packages expanding system capabilities and improving external service interoperability, supporting 5+ external partners.",
+            "Developed EDI (Electronic Data Interchange) flows, streamlining B2B transactions between 2 major partners, ensuring data is accurately converted to user-friendly formats, improving transaction time by 10%."
+          ],
+          "skills": [
+            "Temporal.io",
+            "REST APIs",
+            "AWS",
+            "Microservices",
+            "MongoDB",
+            "Typescript",
+            "JavaScript",
+            "Node.js",
+            "Jest",
+            "GraphQL",
+            "Express.js"
+          ]
+        }
       ]
     },
     {
       "id": 3,
-      "jobTitle": "Software Development Engineer Intern",
-      "company": "Hopstack",
-      "companyWebsite": "https://www.hopstack.io",
-      "duration": "Jan 2022 - Dec 2022",
-      "description": [
-        "Developed 12+ API integrations (REST, GraphQL, SOAP), and npm packages expanding system capabilities and improving external service interoperability, supporting 5+ external partners.",
-        "Developed EDI (Electronic Data Interchange) flows, streamlining B2B transactions between 2 major partners, ensuring data is accurately converted to user-friendly formats, improving transaction time by 10%."
-      ],
-      "skills": [
-        "Temporal.io",
-        "REST APIs",
-        "AWS",
-        "Microservices",
-        "MongoDB",
-        "Typescript",
-        "JavaScript",
-        "Node.js",
-        "Jest",
-        "GraphQL",
-        "Express.js"
-      ]
-    },
-    {
-      "id": 4,
-      "jobTitle": "Backend Developer Intern",
       "company": "The Butter App",
-      "duration": "Sep 2021 - Dec 2021",
-      "description": [
-        "Created a dashboard using Redash and MongoDB Aggregation tracking daily usage for 100+ active users.",
-        "Built and Deployed a microservice for real-time notifications increasing user engagement by 30%.",
-        "Managed AWS services (EC2, ECR, ECS, SNS, SQS) handling 10000+ daily requests and ensuring scalability",
-        "Built REST APIs for managing activity logs and workspace details improving data accuracy by 15%."
-      ],
-      "skills": [
-        "Socket.io",
-        "Redash",
-        "Redis",
-        "Firebase",
-        "REST APIs",
-        "AWS",
-        "Microservices",
-        "MongoDB",
-        "JavaScript",
-        "Node.js",
-        "Express.js",
-        "Jest",
-        "GraphQL",
-        "Typescript"
+      "span": "Sep 2021 - Dec 2021",
+      "tenure": "Internship",
+      "roles": [
+        {
+          "title": "Backend Developer Intern",
+          "period": "Sep 2021 - Dec 2021",
+          "current": false,
+          "description": [
+            "Created a dashboard using Redash and MongoDB Aggregation tracking daily usage for 100+ active users.",
+            "Built and Deployed a microservice for real-time notifications increasing user engagement by 30%.",
+            "Managed AWS services (EC2, ECR, ECS, SNS, SQS) handling 10000+ daily requests and ensuring scalability",
+            "Built REST APIs for managing activity logs and workspace details improving data accuracy by 15%."
+          ],
+          "skills": [
+            "Socket.io",
+            "Redash",
+            "Redis",
+            "Firebase",
+            "REST APIs",
+            "AWS",
+            "Microservices",
+            "MongoDB",
+            "JavaScript",
+            "Node.js",
+            "Express.js",
+            "Jest",
+            "GraphQL",
+            "Typescript"
+          ]
+        }
       ]
     }
   ],
@@ -159,21 +196,28 @@
     {
       "id": 1,
       "name": "GrainShield : Grain Moisture Detection",
+      "tag": "IoT · Patent",
       "description": "Engineered an IoT system for real-time grain moisture monitoring, cutting grain loss by 30%.",
       "links": [
         {
-          "name": "Patent Link",
+          "name": "Patent",
           "url": "https://drive.google.com/file/d/11Vk2EtDXpbRno8hXi2HnxX0JtBcniR9H/view"
         }
+      ],
+      "techUsed": [
+        "IoT",
+        "Embedded",
+        "Sensors"
       ]
     },
     {
       "id": 2,
       "name": "Zournal",
+      "tag": "Web App",
       "description": "A solution to make journaling easy by tracking daily tasks, notes, and upcoming events.",
       "links": [
         {
-          "name": "Github Link",
+          "name": "GitHub",
           "url": "https://github.com/abhishek-geek/zournal"
         }
       ],
@@ -190,71 +234,178 @@
     {
       "id": 3,
       "name": "Vehicle Finance Management System",
+      "tag": "DBMS",
       "description": "Designed a DBMS for bank agents to manage vehicle loans, boosting recovery efficiency by 20%.",
       "links": [
         {
-          "name": "Github Link",
+          "name": "GitHub",
           "url": "https://github.com/abhishek-geek/vfin"
         }
       ],
-      "techUsed": ["MySQL", "WAMP", "HTML/CSS", "PHP"]
+      "techUsed": [
+        "MySQL",
+        "WAMP",
+        "HTML/CSS",
+        "PHP"
+      ]
     }
   ],
   "skills": [
     {
       "id": 1,
-      "category": "Programming Languages",
+      "category": "Languages",
       "skills": [
-        "C",
-        "C++",
-        "JavaScript",
-        "TypeScript",
-        "Java",
-        "Python",
-        "SQL",
-        "HTML/CSS"
+        {
+          "name": "C",
+          "icon": "c"
+        },
+        {
+          "name": "C++",
+          "icon": "cplusplus"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "javascript"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "typescript"
+        },
+        {
+          "name": "Java",
+          "mono": "Jv"
+        },
+        {
+          "name": "Python",
+          "icon": "python"
+        },
+        {
+          "name": "SQL",
+          "mono": "SQL"
+        },
+        {
+          "name": "HTML / CSS",
+          "icon": "html5"
+        }
       ]
     },
     {
       "id": 2,
       "category": "Frameworks & Libraries",
       "skills": [
-        "React.js",
-        "Node.js",
-        "Nest.js",
-        "Express.js",
-        "GraphQl",
-        "Socket.io",
-        "Temporal.io"
+        {
+          "name": "React",
+          "icon": "react"
+        },
+        {
+          "name": "Node.js",
+          "icon": "nodedotjs"
+        },
+        {
+          "name": "Nest.js",
+          "icon": "nestjs"
+        },
+        {
+          "name": "Express",
+          "icon": "express"
+        },
+        {
+          "name": "GraphQL",
+          "icon": "graphql"
+        },
+        {
+          "name": "Socket.io",
+          "icon": "socketdotio"
+        },
+        {
+          "name": "Temporal",
+          "mono": "Tp"
+        }
       ]
     },
     {
       "id": 3,
-      "category": "Database",
-      "skills": ["MongoDB", "Redis", "MySQL", "Firebase"]
+      "category": "Databases",
+      "skills": [
+        {
+          "name": "MongoDB",
+          "icon": "mongodb"
+        },
+        {
+          "name": "Redis",
+          "icon": "redis"
+        },
+        {
+          "name": "MySQL",
+          "icon": "mysql"
+        },
+        {
+          "name": "Firebase",
+          "icon": "firebase"
+        }
+      ]
     },
     {
       "id": 4,
-      "category": "Cloud & DevOps Tools",
+      "category": "Cloud & DevOps",
       "skills": [
-        "AWS (EC2, ECR, ECS, S3, ElastiCache, SNS, SQS)",
-        "Docker",
-        "Git",
-        "GitHub",
-        "VS Code",
-        "Postman",
-        "Linux"
+        {
+          "name": "AWS",
+          "icon": "amazonaws"
+        },
+        {
+          "name": "Docker",
+          "icon": "docker"
+        },
+        {
+          "name": "Git",
+          "icon": "git"
+        },
+        {
+          "name": "Linux",
+          "icon": "linux"
+        },
+        {
+          "name": "Postman",
+          "icon": "postman"
+        }
       ]
     },
     {
       "id": 5,
       "category": "Methodologies",
-      "skills": ["Agile", "Test-Driven Development (TDD)", "CI/CD Pipelines"]
+      "skills": [
+        {
+          "name": "Agile",
+          "mono": "Ag"
+        },
+        {
+          "name": "Test-Driven Dev",
+          "mono": "TDD"
+        },
+        {
+          "name": "CI/CD",
+          "mono": "CI"
+        }
+      ]
     },
     {
       "id": 6,
       "category": "API Development",
-      "skills": ["REST", "GraphQL", "SOAP"]
+      "skills": [
+        {
+          "name": "REST",
+          "mono": "RE"
+        },
+        {
+          "name": "GraphQL",
+          "icon": "graphql"
+        },
+        {
+          "name": "SOAP",
+          "mono": "SO"
+        }
+      ]
     }
   ]
 }
