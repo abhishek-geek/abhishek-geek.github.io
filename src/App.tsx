@@ -24,7 +24,7 @@ export default function App() {
           education={profile.education}
           location={profile.personalDetails.currentLocation}
         />
-        <Experience items={profile.workExperiences} />
+        <Experience items={profile.companies} />
         <Projects items={profile.personalProjects} />
         <Skills categories={profile.skills} />
         <Contact details={profile.personalDetails} />

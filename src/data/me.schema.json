@@ -1,14 +1,39 @@
 {
   "type": "object",
-  "required": [],
+  "required": [
+    "personalDetails",
+    "about",
+    "marquee",
+    "companies",
+    "education",
+    "personalProjects",
+    "skills"
+  ],
   "properties": {
     "personalDetails": {
       "type": "object",
-      "required": [],
+      "required": [
+        "name",
+        "role",
+        "description",
+        "email",
+        "phone",
+        "currentLocation",
+        "linkedin",
+        "github",
+        "x",
+        "leetcode",
+        "resumeLink",
+        "tagline",
+        "status"
+      ],
       "properties": {
         "name": {
           "type": "object",
-          "required": [],
+          "required": [
+            "first",
+            "last"
+          ],
           "properties": {
             "first": {
               "type": "string"
@@ -18,12 +43,21 @@
             }
           }
         },
+        "role": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
         "email": {
           "type": "string"
         },
         "phone": {
           "type": "object",
-          "required": [],
+          "required": [
+            "prefixCode",
+            "number"
+          ],
           "properties": {
             "prefixCode": {
               "type": "string"
@@ -35,7 +69,11 @@
         },
         "currentLocation": {
           "type": "object",
-          "required": [],
+          "required": [
+            "city",
+            "state",
+            "country"
+          ],
           "properties": {
             "city": {
               "type": "string"
@@ -57,42 +95,113 @@
         "x": {
           "type": "string"
         },
+        "leetcode": {
+          "type": "string"
+        },
         "resumeLink": {
+          "type": "string"
+        },
+        "tagline": {
+          "type": "string"
+        },
+        "status": {
           "type": "string"
         }
       }
     },
-    "workExperiences": {
+    "about": {
+      "type": "object",
+      "required": [
+        "statement",
+        "body",
+        "focus",
+        "experienceSummary"
+      ],
+      "properties": {
+        "statement": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "focus": {
+          "type": "string"
+        },
+        "experienceSummary": {
+          "type": "string"
+        }
+      }
+    },
+    "marquee": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "companies": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": [],
+        "required": [
+          "id",
+          "company",
+          "span",
+          "tenure",
+          "roles"
+        ],
         "properties": {
           "id": {
             "type": "number"
           },
-          "jobTitle": {
-            "type": "string"
-          },
           "company": {
             "type": "string"
           },
-          "companyWebsite": {
-            "type": "string"
+          "website": {
+            "type": "string",
+            "description": "Optional company URL"
           },
-          "duration": {
-            "type": "string"
+          "span": {
+            "type": "string",
+            "description": "Full range at the company, e.g. 'Jan 2022 - 2025'"
           },
-          "description": {
+          "tenure": {
+            "type": "string",
+            "description": "Short label, e.g. 'Current', '3 yrs · 3 roles', 'Internship'"
+          },
+          "roles": {
             "type": "array",
             "items": {
-              "type": "string"
-            }
-          },
-          "skills": {
-            "type": "array",
-            "items": {
-              "type": "string"
+              "type": "object",
+              "required": [
+                "title",
+                "period",
+                "current",
+                "description",
+                "skills"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "period": {
+                  "type": "string"
+                },
+                "current": {
+                  "type": "boolean"
+                },
+                "description": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "skills": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
         }
@@ -102,7 +211,13 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": [],
+        "required": [
+          "id",
+          "institute",
+          "duration",
+          "degree",
+          "courses"
+        ],
         "properties": {
           "id": {
             "type": "number"
@@ -117,7 +232,10 @@
             "type": "string"
           },
           "courses": {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       }
@@ -126,13 +244,22 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": [],
+        "required": [
+          "id",
+          "name",
+          "description",
+          "links"
+        ],
         "properties": {
           "id": {
             "type": "number"
           },
           "name": {
             "type": "string"
+          },
+          "tag": {
+            "type": "string",
+            "description": "Short uppercase card label, e.g. 'Web App'"
           },
           "description": {
             "type": "string"
@@ -141,13 +268,63 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": [],
+              "required": [
+                "name",
+                "url"
+              ],
               "properties": {
                 "name": {
                   "type": "string"
                 },
                 "url": {
                   "type": "string"
+                }
+              }
+            }
+          },
+          "techUsed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "category",
+          "skills"
+        ],
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "category": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "icon": {
+                  "type": "string",
+                  "description": "simple-icons slug (https://simpleicons.org)"
+                },
+                "mono": {
+                  "type": "string",
+                  "description": "2-3 letter fallback badge when no icon exists"
                 }
               }
             }

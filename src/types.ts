@@ -21,14 +21,23 @@ export interface About {
   experienceSummary: string;
 }
 
-export interface WorkExperience {
-  id: number;
-  jobTitle: string;
-  company: string;
-  companyWebsite?: string;
-  duration: string;
+export interface Role {
+  title: string;
+  period: string;
+  current: boolean;
   description: string[];
   skills: string[];
+}
+
+export interface Company {
+  id: number;
+  company: string;
+  website?: string;
+  /** Full range at the company, e.g. "Jan 2022 - 2025" */
+  span: string;
+  /** Short tenure label, e.g. "Current", "3 yrs · 3 roles", "Internship" */
+  tenure: string;
+  roles: Role[];
 }
 
 export interface Education {
@@ -53,17 +62,25 @@ export interface PersonalProject {
   techUsed?: string[];
 }
 
+export interface SkillItem {
+  name: string;
+  /** simple-icons slug (https://simpleicons.org), rendered as a masked icon */
+  icon?: string;
+  /** 2–3 letter fallback badge when no icon slug exists */
+  mono?: string;
+}
+
 export interface SkillCategory {
   id: number;
   category: string;
-  skills: string[];
+  skills: SkillItem[];
 }
 
 export interface Profile {
   personalDetails: PersonalDetails;
   about: About;
   marquee: string[];
-  workExperiences: WorkExperience[];
+  companies: Company[];
   education: Education[];
   personalProjects: PersonalProject[];
   skills: SkillCategory[];

@@ -21,9 +21,20 @@ describe("me.json data contract", () => {
   });
 
   it("has non-empty collections", () => {
-    expect(profile.workExperiences.length).toBeGreaterThan(0);
+    expect(profile.companies.length).toBeGreaterThan(0);
+    for (const company of profile.companies) {
+      expect(company.span).toBeTruthy();
+      expect(company.tenure).toBeTruthy();
+      expect(company.roles.length).toBeGreaterThan(0);
+    }
     expect(profile.personalProjects.length).toBeGreaterThan(0);
     expect(profile.skills.length).toBeGreaterThan(0);
+    for (const category of profile.skills) {
+      for (const item of category.skills) {
+        expect(item.name).toBeTruthy();
+        expect(item.icon || item.mono).toBeTruthy();
+      }
+    }
     expect(profile.education.length).toBeGreaterThan(0);
     expect(profile.marquee.length).toBeGreaterThan(0);
     expect(profile.about.statement).toBeTruthy();
@@ -45,8 +56,12 @@ describe("App", () => {
     expect(screen.getByRole("heading", { name: "Toolkit" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Contact" })).toBeInTheDocument();
 
-    for (const job of profile.workExperiences) {
-      expect(screen.getAllByText(job.jobTitle).length).toBeGreaterThan(0);
+    for (const company of profile.companies) {
+      expect(screen.getAllByText(company.company).length).toBeGreaterThan(0);
+      expect(screen.getByText(company.tenure)).toBeInTheDocument();
+      for (const role of company.roles) {
+        expect(screen.getAllByText(role.title).length).toBeGreaterThan(0);
+      }
     }
     for (const project of profile.personalProjects) {
       expect(screen.getByText(project.name)).toBeInTheDocument();
