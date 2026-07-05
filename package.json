@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist --cname portfolio.byabhishekdubey.com"
   },
   "dependencies": {
     "react": "^18.3.1",
