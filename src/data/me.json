@@ -55,7 +55,11 @@
           "period": "2025 - Present",
           "current": true,
           "description": [
-            "Building and scaling backend services for the HighLevel platform."
+            "Created a custom payment paywall for the add-on subscription system, supporting multiple payment options like cards and wallets.",
+            "Built trial subscriptions that automatically convert to paid subscriptions when the trial ends.",
+            "Added support for 13+ languages across the module.",
+            "Implemented subscription management features — immediate cancellation, scheduled cancellation, and tax application and management.",
+            "Designed async workflows for subscribing and unsubscribing add-ons for thousands of clients."
           ],
           "skills": [
             "Node.js",
