@@ -16,8 +16,28 @@
       rel="stylesheet"
     />
     <title>Abhishek Dubey — Software Engineer</title>
-    <script type="module" crossorigin src="/assets/index-D4Kdrsvv.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-yzxbH78q.css">
+    <script>
+      // Apply saved/system theme before first paint to avoid a flash.
+      (function () {
+        var theme = "dark";
+        try {
+          var stored = localStorage.getItem("theme");
+          if (stored === "light" || stored === "dark") {
+            theme = stored;
+          } else if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: light)").matches
+          ) {
+            theme = "light";
+          }
+        } catch (e) {
+          // Storage unavailable — keep dark default.
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CUOzlRqm.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CsASVf_J.css">
   </head>
   <body>
     <div id="root"></div>
