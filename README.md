@@ -23,11 +23,10 @@ site re-renders from it. No component changes needed. The portrait photo lives a
 
 ## Domains
 
-The repo carries no domain configuration — deploys publish `dist` as-is. Domain
-setup (DNS records, GitHub Pages custom domain) is managed separately in the
-DNS provider and repo settings.
+The site is served at `portfolio.byabhishekdubey.com`. `npm run deploy` writes a
+`CNAME` file into the published `gh-pages` branch (via the `--cname` flag), which
+keeps GitHub Pages' custom-domain setting intact across deploys. DNS is a
+Cloudflare CNAME record: `portfolio` → `abhishek-geek.github.io` (DNS only).
 
-Note: `npm run deploy` replaces the `gh-pages` branch. If a custom domain is set
-in repo settings, GitHub stores it as a `CNAME` file on that branch, and the next
-deploy will wipe it — re-enter the custom domain in settings after deploying, or
-deploy with `npx gh-pages -d dist --add`.
+To change the domain: update the `--cname` value in the `deploy` script and the
+DNS record together.
