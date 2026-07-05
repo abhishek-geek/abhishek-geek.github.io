@@ -10,6 +10,15 @@ export interface PersonalDetails {
   x: string;
   leetcode: string;
   resumeLink: string;
+  tagline: string;
+  status: string;
+}
+
+export interface About {
+  statement: string;
+  body: string;
+  focus: string;
+  experienceSummary: string;
 }
 
 export interface WorkExperience {
@@ -38,6 +47,7 @@ export interface ProjectLink {
 export interface PersonalProject {
   id: number;
   name: string;
+  tag?: string;
   description: string;
   links: ProjectLink[];
   techUsed?: string[];
@@ -51,6 +61,8 @@ export interface SkillCategory {
 
 export interface Profile {
   personalDetails: PersonalDetails;
+  about: About;
+  marquee: string[];
   workExperiences: WorkExperience[];
   education: Education[];
   personalProjects: PersonalProject[];

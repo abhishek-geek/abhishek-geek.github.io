@@ -1,43 +1,49 @@
 import type { PersonalProject } from "../types";
 import Section from "./Section";
+import { useReveal } from "../hooks/useReveal";
 
-interface ProjectsProps {
-  items: PersonalProject[];
+function ProjectCard({ project, index }: { project: PersonalProject; index: number }) {
+  const ref = useReveal<HTMLAnchorElement>();
+  const primaryLink = project.links[0];
+
+  return (
+    <a
+      className="card reveal"
+      ref={ref}
+      href={primaryLink?.url}
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      <span className="card__num" aria-hidden="true">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      {project.tag && <span className="card__tag">{project.tag}</span>}
+      <h3 className="card__name">{project.name}</h3>
+      <p className="card__desc">{project.description}</p>
+      {project.techUsed && (
+        <div className="chips chips--small">
+          {project.techUsed.map((tech) => (
+            <span key={tech} className="chip">
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
+      {primaryLink && (
+        <span className="card__link">
+          {primaryLink.name} <span aria-hidden="true">↗</span>
+        </span>
+      )}
+    </a>
+  );
 }
 
-export default function Projects({ items }: ProjectsProps) {
+export default function Projects({ items }: { items: PersonalProject[] }) {
   return (
-    <Section id="projects" index="02" title="Projects">
-      <div className="projects">
+    <Section id="projects" index="03" label="Selected Projects">
+      <div className="cards">
         {items.map((project, i) => (
-          <article key={project.id} className="project">
-            <span className="project__number">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <h3 className="project__name">{project.name}</h3>
-            <p className="project__desc">{project.description}</p>
-            {project.techUsed && (
-              <ul className="chips">
-                {project.techUsed.map((tech) => (
-                  <li key={tech} className="chip">
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-            )}
-            <div className="project__links">
-              {project.links.map((link) => (
-                <a
-                  key={link.url}
-                  href={link.url}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  {link.name} ↗
-                </a>
-              ))}
-            </div>
-          </article>
+          <ProjectCard key={project.id} project={project} index={i} />
         ))}
       </div>
     </Section>

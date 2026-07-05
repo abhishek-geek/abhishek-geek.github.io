@@ -19,11 +19,11 @@ function getInitialTheme(): Theme {
   if (stored) return stored;
   if (
     typeof window.matchMedia === "function" &&
-    window.matchMedia("(prefers-color-scheme: light)").matches
+    window.matchMedia("(prefers-color-scheme: dark)").matches
   ) {
-    return "light";
+    return "dark";
   }
-  return "dark";
+  return "light";
 }
 
 export function useTheme() {

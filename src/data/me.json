@@ -20,8 +20,28 @@
     "github": "https://github.com/abhishek-geek",
     "x": "https://x.com/byAbhishekDubey",
     "leetcode": "https://leetcode.com/u/abhi_dev/",
-    "resumeLink": "https://drive.google.com/file/d/1jUXySiEIwmxqgGhBvKPBaa1Jt0ebIYho/view"
+    "resumeLink": "https://drive.google.com/file/d/1jUXySiEIwmxqgGhBvKPBaa1Jt0ebIYho/view",
+    "tagline": "I build scalable backend systems and thoughtful software. Currently a Software Development Engineer II at HighLevel, working across Node.js, distributed services, and data at scale.",
+    "status": "Open to conversations"
   },
+  "about": {
+    "statement": "A quick learner and problem-solver who likes shipping things that scale.",
+    "body": "I'm a Software Engineer with a strong computer-science foundation and hands-on experience building production systems. I care about clean architecture, effective solutions, and picking up new technologies fast — and I do my best work as part of a team with clear communication.",
+    "focus": "Backend · Distributed systems · APIs",
+    "experienceSummary": "4+ years shipping"
+  },
+  "marquee": [
+    "Node.js",
+    "TypeScript",
+    "MongoDB",
+    "AWS",
+    "Temporal.io",
+    "NestJS",
+    "Redis",
+    "GraphQL",
+    "Microservices",
+    "Distributed Systems"
+  ],
   "workExperiences": [
     {
       "id": 5,
@@ -159,21 +179,24 @@
     {
       "id": 1,
       "name": "GrainShield : Grain Moisture Detection",
+      "tag": "IoT · Patent",
       "description": "Engineered an IoT system for real-time grain moisture monitoring, cutting grain loss by 30%.",
       "links": [
         {
-          "name": "Patent Link",
+          "name": "Patent",
           "url": "https://drive.google.com/file/d/11Vk2EtDXpbRno8hXi2HnxX0JtBcniR9H/view"
         }
-      ]
+      ],
+      "techUsed": ["IoT", "Embedded", "Sensors"]
     },
     {
       "id": 2,
       "name": "Zournal",
+      "tag": "Web App",
       "description": "A solution to make journaling easy by tracking daily tasks, notes, and upcoming events.",
       "links": [
         {
-          "name": "Github Link",
+          "name": "GitHub",
           "url": "https://github.com/abhishek-geek/zournal"
         }
       ],
@@ -190,10 +213,11 @@
     {
       "id": 3,
       "name": "Vehicle Finance Management System",
+      "tag": "DBMS",
       "description": "Designed a DBMS for bank agents to manage vehicle loans, boosting recovery efficiency by 20%.",
       "links": [
         {
-          "name": "Github Link",
+          "name": "GitHub",
           "url": "https://github.com/abhishek-geek/vfin"
         }
       ],

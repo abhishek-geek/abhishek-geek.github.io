@@ -1,44 +1,59 @@
 import type { WorkExperience } from "../types";
 import Section from "./Section";
+import { useReveal } from "../hooks/useReveal";
 
-interface ExperienceProps {
-  items: WorkExperience[];
+function WorkRow({ job }: { job: WorkExperience }) {
+  const ref = useReveal<HTMLLIElement>();
+
+  return (
+    <li className="workrow reveal" ref={ref}>
+      <span className="workrow__period">{job.duration}</span>
+      <div className="workrow__body">
+        <div className="workrow__heading">
+          <h3 className="workrow__title">{job.jobTitle}</h3>
+          <span className="workrow__dot" aria-hidden="true">
+            ·
+          </span>
+          {job.companyWebsite ? (
+            <a
+              className="workrow__company"
+              href={job.companyWebsite}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {job.company}
+              <span className="workrow__arrow" aria-hidden="true">
+                {" "}
+                ↗
+              </span>
+            </a>
+          ) : (
+            <span className="workrow__company">{job.company}</span>
+          )}
+        </div>
+        <ul className="workrow__points">
+          {job.description.map((point) => (
+            <li key={point}>{point}</li>
+          ))}
+        </ul>
+        <div className="chips">
+          {job.skills.map((skill) => (
+            <span key={skill} className="chip">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </li>
+  );
 }
 
-export default function Experience({ items }: ExperienceProps) {
+export default function Experience({ items }: { items: WorkExperience[] }) {
   return (
-    <Section id="experience" index="01" title="Experience">
-      <ol className="timeline">
+    <Section id="work" index="02" label="Experience">
+      <ol className="worklist">
         {items.map((job) => (
-          <li key={job.id} className="timeline__item">
-            <div className="timeline__meta">
-              <span className="timeline__duration">{job.duration}</span>
-            </div>
-            <div className="timeline__body">
-              <h3 className="timeline__role">{job.jobTitle}</h3>
-              <p className="timeline__company">
-                {job.companyWebsite ? (
-                  <a href={job.companyWebsite} target="_blank" rel="noreferrer noopener">
-                    {job.company}
-                  </a>
-                ) : (
-                  job.company
-                )}
-              </p>
-              <ul className="timeline__points">
-                {job.description.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-              <ul className="chips">
-                {job.skills.map((skill) => (
-                  <li key={skill} className="chip">
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </li>
+          <WorkRow key={job.id} job={job} />
         ))}
       </ol>
     </Section>

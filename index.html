@@ -12,26 +12,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <title>Abhishek Dubey — Software Engineer</title>
     <script>
       // Apply saved/system theme before first paint to avoid a flash.
       (function () {
-        var theme = "dark";
+        var theme = "light";
         try {
           var stored = localStorage.getItem("theme");
           if (stored === "light" || stored === "dark") {
             theme = stored;
           } else if (
             window.matchMedia &&
-            window.matchMedia("(prefers-color-scheme: light)").matches
+            window.matchMedia("(prefers-color-scheme: dark)").matches
           ) {
-            theme = "light";
+            theme = "dark";
           }
         } catch (e) {
-          // Storage unavailable — keep dark default.
+          // Storage unavailable — keep light default.
         }
         document.documentElement.dataset.theme = theme;
       })();

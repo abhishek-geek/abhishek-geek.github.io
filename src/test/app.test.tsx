@@ -12,6 +12,8 @@ describe("me.json data contract", () => {
     expect(d.name.first).toBeTruthy();
     expect(d.name.last).toBeTruthy();
     expect(d.role).toBeTruthy();
+    expect(d.tagline).toBeTruthy();
+    expect(d.status).toBeTruthy();
     expect(d.email).toMatch(/@/);
     expect(d.github).toMatch(/^https:\/\//);
     expect(d.linkedin).toMatch(/^https:\/\//);
@@ -23,6 +25,8 @@ describe("me.json data contract", () => {
     expect(profile.personalProjects.length).toBeGreaterThan(0);
     expect(profile.skills.length).toBeGreaterThan(0);
     expect(profile.education.length).toBeGreaterThan(0);
+    expect(profile.marquee.length).toBeGreaterThan(0);
+    expect(profile.about.statement).toBeTruthy();
   });
 });
 
@@ -33,10 +37,13 @@ describe("App", () => {
     expect(
       screen.getByRole("heading", { level: 1, name: /abhishek/i })
     ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "About" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Experience" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Projects" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Skills" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Education" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Selected Projects" })
+    ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Toolkit" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Contact" })).toBeInTheDocument();
 
     for (const job of profile.workExperiences) {
       expect(screen.getAllByText(job.jobTitle).length).toBeGreaterThan(0);
@@ -44,34 +51,38 @@ describe("App", () => {
     for (const project of profile.personalProjects) {
       expect(screen.getByText(project.name)).toBeInTheDocument();
     }
-    expect(screen.getByText(profile.education[0].institute)).toBeInTheDocument();
+    expect(
+      screen.getByText(new RegExp(profile.education[0].institute))
+    ).toBeInTheDocument();
   });
 
-  it("does not render a résumé link", () => {
+  it("renders the résumé link from me.json", () => {
     render(<App />);
-    expect(screen.queryByRole("link", { name: /résumé|resume/i })).toBeNull();
+    const resume = screen.getAllByRole("link", { name: /résumé/i });
+    expect(resume.length).toBeGreaterThan(0);
+    for (const link of resume) {
+      expect(link).toHaveAttribute("href", profile.personalDetails.resumeLink);
+    }
   });
 
-  it("toggles between dark and light theme and persists the choice", async () => {
+  it("defaults to light theme, toggles to dark, and persists the choice", async () => {
     localStorage.clear();
     document.documentElement.dataset.theme = "";
     render(<App />);
 
-    const toggle = screen.getByRole("button", { name: /switch to light theme/i });
-    expect(document.documentElement.dataset.theme).toBe("dark");
+    const toggle = screen.getByRole("button", { name: /switch to dark theme/i });
+    expect(document.documentElement.dataset.theme).toBe("light");
+    expect(toggle).toHaveTextContent("Dark");
 
     await userEvent.click(toggle);
-    expect(document.documentElement.dataset.theme).toBe("light");
-    expect(localStorage.getItem("theme")).toBe("light");
-    expect(
-      screen.getByRole("button", { name: /switch to dark theme/i })
-    ).toBeInTheDocument();
-
-    await userEvent.click(
-      screen.getByRole("button", { name: /switch to dark theme/i })
-    );
     expect(document.documentElement.dataset.theme).toBe("dark");
     expect(localStorage.getItem("theme")).toBe("dark");
+
+    await userEvent.click(
+      screen.getByRole("button", { name: /switch to light theme/i })
+    );
+    expect(document.documentElement.dataset.theme).toBe("light");
+    expect(localStorage.getItem("theme")).toBe("light");
   });
 
   it("links contact actions to the email in me.json", () => {
