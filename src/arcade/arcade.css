@@ -1,0 +1,712 @@
+/* ===========================================================================
+   Arcade portfolio — gamified variant.
+   All rules are scoped under `.arcade` so they never touch the classic look.
+   Colour is driven by --acc (accent); everything else is a fixed dark HUD.
+=========================================================================== */
+.arcade {
+  --acc: #7dff9b;
+  --fg: #e6f0ea;
+  --muted: #7c8aa0;
+  --line: color-mix(in srgb, var(--acc) 16%, transparent);
+  --text-soft: #c3cede;
+  --text-dim: #aab6c8;
+
+  position: relative;
+  min-height: 100vh;
+  background: radial-gradient(120% 80% at 50% -10%, #0d1626 0%, #080b12 55%, #070a10 100%);
+  color: var(--fg);
+  font-family: "Chakra Petch", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.arcade * {
+  box-sizing: border-box;
+}
+.arcade ::selection {
+  background: var(--acc);
+  color: #070a10;
+}
+
+/* When the arcade view is active we force a dark canvas regardless of the
+   theme toggle used by the classic layout. */
+body:has(.arcade) {
+  background: #070a10;
+}
+
+/* :where() keeps this reset at zero specificity so component link colours
+   (buttons, chips, nav) always win instead of falling back to inherit. */
+:where(.arcade a) {
+  color: inherit;
+  text-decoration: none;
+}
+/* Zero-specificity element resets so component classes always win. */
+:where(.arcade h1, .arcade h2, .arcade h3) {
+  margin: 0;
+}
+:where(.arcade p) {
+  margin: 0;
+}
+:where(.arcade ul) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---- keyframes ---------------------------------------------------------- */
+@keyframes ga-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes ga-rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes ga-blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0.25; } }
+@keyframes ga-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--acc) 55%, transparent); }
+  50% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--acc) 0%, transparent); }
+}
+@keyframes ga-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+/* ---- scanline overlay --------------------------------------------------- */
+.arcade__scan,
+.arcade__vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+}
+.arcade__scan {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.035) 0px,
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+  opacity: 0.5;
+}
+.arcade__vignette {
+  background: radial-gradient(120% 100% at 50% 50%, transparent 62%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+/* ---- HUD nav ------------------------------------------------------------ */
+.arcade__nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px clamp(16px, 4vw, 52px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(8, 11, 18, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.arcade__brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.arcade__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--acc);
+  box-shadow: 0 0 10px var(--acc);
+  animation: ga-pulse 2.4s ease-in-out infinite;
+}
+.arcade__player {
+  font-family: "Silkscreen", monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--acc);
+}
+.arcade__handle {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+.arcade__menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2.2vw, 26px);
+}
+.arcade__menu-link {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  transition: color 0.2s ease;
+}
+.arcade__menu-link span { color: var(--acc); }
+.arcade__menu-link:hover { color: var(--acc); }
+
+/* ---- layout shell ------------------------------------------------------- */
+.arcade__main {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 52px);
+}
+.arcade__mono { font-family: "JetBrains Mono", monospace; }
+.arcade__pixel { font-family: "Silkscreen", monospace; }
+
+/* ---- section heading ---------------------------------------------------- */
+.arcade__section {
+  padding: 0 0 clamp(40px, 7vh, 80px);
+}
+.arcade__section--quests {
+  padding: clamp(50px, 9vh, 100px) 0 clamp(40px, 7vh, 80px);
+}
+.arcade__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: clamp(24px, 4vh, 40px);
+}
+.arcade__head-num {
+  font-family: "Silkscreen", monospace;
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  color: var(--acc);
+}
+.arcade__head-title {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.arcade__head-rule {
+  flex: 1;
+  height: 1px;
+  background: color-mix(in srgb, var(--acc) 20%, transparent);
+}
+.arcade__head-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ---- character / hero --------------------------------------------------- */
+.arcade__hero {
+  padding: clamp(40px, 8vh, 80px) 0 clamp(30px, 5vh, 54px);
+}
+.arcade__hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(22px, 3.5vw, 44px);
+  align-items: stretch;
+}
+.arcade__panel {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: clamp(22px, 3vw, 36px);
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(18, 26, 40, 0.9), rgba(12, 17, 26, 0.9));
+  animation: ga-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.05s forwards;
+  opacity: 0;
+}
+.arcade__corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+}
+.arcade__corner--tl { top: 10px; left: 10px; border-top: 2px solid var(--acc); border-left: 2px solid var(--acc); }
+.arcade__corner--tr { top: 10px; right: 10px; border-top: 2px solid var(--acc); border-right: 2px solid var(--acc); }
+.arcade__corner--bl { bottom: 10px; left: 10px; border-bottom: 2px solid var(--acc); border-left: 2px solid var(--acc); }
+.arcade__corner--br { bottom: 10px; right: 10px; border-bottom: 2px solid var(--acc); border-right: 2px solid var(--acc); }
+
+.arcade__id {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 26px);
+  flex-wrap: wrap;
+}
+.arcade__avatar {
+  flex: none;
+  width: 118px;
+  height: 118px;
+  display: grid;
+  place-items: center;
+  background: var(--acc);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  animation: ga-float 5s ease-in-out infinite;
+}
+.arcade__avatar-inner {
+  width: 92%;
+  height: 92%;
+  display: grid;
+  place-items: center;
+  background: #0b111b;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+.arcade__avatar-inner span {
+  font-family: "Silkscreen", monospace;
+  font-size: 34px;
+  color: var(--acc);
+  letter-spacing: 2px;
+}
+.arcade__now {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+.arcade__name {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4.6vw, 3.3rem);
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  margin: 6px 0 0;
+  text-transform: uppercase;
+}
+.arcade__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.arcade__tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  border-radius: 6px;
+  padding: 4px 9px;
+}
+.arcade__tag--acc {
+  color: var(--acc);
+  border: 1px solid color-mix(in srgb, var(--acc) 45%, transparent);
+}
+.arcade__tag--muted {
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+.arcade__level {
+  margin-top: clamp(20px, 3vh, 30px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.arcade__level-badge {
+  position: relative;
+  flex: none;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--acc);
+  border-radius: 12px;
+  background: rgba(125, 255, 155, 0.08);
+}
+.arcade__level-badge small {
+  position: absolute;
+  top: 6px;
+  font-family: "Silkscreen", monospace;
+  font-size: 9px;
+  color: var(--muted);
+}
+.arcade__level-badge b {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--acc);
+  line-height: 1;
+}
+.arcade__level-body { flex: 1; }
+.arcade__xp-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.arcade__bar {
+  border: 1px solid color-mix(in srgb, var(--acc) 20%, transparent);
+  border-radius: 6px;
+  background: #0a0f18;
+  overflow: hidden;
+  padding: 2px;
+}
+.arcade__bar--lg { height: 12px; }
+.arcade__bar--sm { height: 9px; border-radius: 5px; padding: 1.5px; }
+.arcade__bar-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #3ddc84, var(--acc));
+  box-shadow: 0 0 12px color-mix(in srgb, var(--acc) 60%, transparent);
+  transition: width 1.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.arcade__level-note {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.arcade__summary {
+  margin: clamp(28px, 4vh, 40px) 0 0;
+  font-size: clamp(0.98rem, 1.5vw, 1.1rem);
+  line-height: 1.55;
+  color: var(--text-soft);
+  max-width: 52ch;
+}
+.arcade__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: clamp(20px, 3vh, 28px);
+}
+
+/* buttons + links */
+.arcade__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--acc);
+  color: #07110a;
+  font-family: "Silkscreen", monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  padding: 14px 22px;
+  border-radius: 8px;
+  transition: transform 0.18s ease, box-shadow 0.25s ease;
+}
+.arcade__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px color-mix(in srgb, var(--acc) 45%, transparent);
+}
+.arcade__btn--sm { padding: 14px 20px; font-size: 11px; }
+.arcade__ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--fg);
+  border: 1px solid color-mix(in srgb, var(--acc) 24%, transparent);
+  border-radius: 8px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  padding: 14px 18px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.arcade__ghost:hover { color: var(--acc); border-color: var(--acc); }
+
+/* stat block */
+.arcade__stats {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(15, 22, 34, 0.86), rgba(11, 16, 25, 0.86));
+  padding: clamp(20px, 2.6vw, 30px);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  animation: ga-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.16s forwards;
+}
+.arcade__stats-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dashed color-mix(in srgb, var(--acc) 20%, transparent);
+  padding-bottom: 12px;
+  margin-bottom: 6px;
+}
+.arcade__stats-head b { font-family: "Silkscreen", monospace; font-size: 12px; color: var(--acc); }
+.arcade__stats-head span { font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--muted); }
+.arcade__stat { padding: 11px 0; }
+.arcade__stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 7px;
+}
+.arcade__stat-row .label { font-family: "JetBrains Mono", monospace; font-size: 12.5px; color: var(--text-soft); letter-spacing: 0.02em; }
+.arcade__stat-row .pct { font-family: "Silkscreen", monospace; font-size: 12px; color: var(--acc); }
+.arcade__stat .arcade__bar-fill {
+  background: linear-gradient(90deg, #2fb877, var(--acc));
+  box-shadow: 0 0 8px color-mix(in srgb, var(--acc) 55%, transparent);
+  transition: width 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* ---- ticker ------------------------------------------------------------- */
+.arcade__ticker {
+  margin: 0 calc(-1 * clamp(16px, 4vw, 52px));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  padding: 12px 0;
+  background: rgba(125, 255, 155, 0.03);
+}
+.arcade__ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+  animation: ga-marquee 30s linear infinite;
+}
+.arcade__ticker:hover .arcade__ticker-track { animation-play-state: paused; }
+.arcade__ticker-item {
+  font-family: "Silkscreen", monospace;
+  font-size: clamp(0.8rem, 1.5vw, 1.05rem);
+  letter-spacing: 0.02em;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  color: var(--text-soft);
+}
+.arcade__ticker-item span { color: var(--acc); }
+
+/* ---- quest log ---------------------------------------------------------- */
+.arcade__quests {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.arcade__quest {
+  position: relative;
+  border: 1px solid;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(16, 23, 36, 0.9), rgba(11, 16, 25, 0.9));
+  padding: clamp(20px, 2.6vw, 30px);
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.3s ease;
+}
+.arcade__quest:hover { transform: translateY(-4px); }
+.arcade__quest-stripe { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+.arcade__quest-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-bottom: 14px;
+}
+.arcade__quest-type {
+  font-family: "Silkscreen", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: #07110a;
+  border-radius: 5px;
+  padding: 5px 9px;
+}
+.arcade__quest-status {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 4px 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.arcade__quest-period { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--muted); }
+.arcade__quest-xp { font-family: "Silkscreen", monospace; font-size: 11px; color: var(--acc); }
+.arcade__quest-title-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.arcade__quest-title {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.arcade__visit {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11.5px;
+  color: var(--muted);
+  border-bottom: 1px solid color-mix(in srgb, var(--acc) 20%, transparent);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.arcade__visit:hover { color: var(--acc); border-color: var(--acc); }
+
+.arcade__roles { margin-top: 20px; display: flex; flex-direction: column; gap: 24px; }
+.arcade__role { border-left: 2px solid color-mix(in srgb, var(--acc) 18%, transparent); padding-left: 16px; }
+.arcade__role-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.arcade__role-chapter { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--acc); letter-spacing: 0.08em; }
+.arcade__role-title { font-family: "Chakra Petch", sans-serif; font-weight: 600; font-size: clamp(1.02rem, 1.7vw, 1.2rem); color: var(--fg); }
+.arcade__role-period { font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--muted); }
+.arcade__bullets { margin: 13px 0 0; display: flex; flex-direction: column; gap: 13px; }
+.arcade__bullet {
+  position: relative;
+  padding-left: 26px;
+  font-size: clamp(0.92rem, 1.35vw, 1.02rem);
+  line-height: 1.5;
+  color: var(--text-dim);
+  max-width: 70ch;
+}
+.arcade__bullet::before {
+  content: "[✓]";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--acc);
+  font-size: 12px;
+}
+.arcade__loot { margin-top: 18px; padding-top: 16px; border-top: 1px dashed color-mix(in srgb, var(--acc) 18%, transparent); }
+.arcade__loot-label { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 9px; }
+.arcade__loot-items { display: flex; flex-wrap: wrap; gap: 7px; }
+.arcade__chip {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--text-soft);
+  border: 1px solid color-mix(in srgb, var(--acc) 20%, transparent);
+  border-radius: 6px;
+  padding: 4px 10px;
+  background: rgba(125, 255, 155, 0.04);
+}
+
+/* ---- trophies ----------------------------------------------------------- */
+.arcade__grid-trophies { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.arcade__trophy {
+  position: relative;
+  border: 1px solid;
+  border-radius: 13px;
+  background: linear-gradient(180deg, rgba(17, 24, 38, 0.92), rgba(11, 16, 25, 0.92));
+  padding: 20px 18px;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.arcade__trophy:hover { transform: translateY(-5px) scale(1.015); }
+.arcade__trophy-glow { position: absolute; top: -40px; right: -40px; width: 110px; height: 110px; border-radius: 50%; }
+.arcade__trophy-top { display: flex; align-items: center; justify-content: space-between; }
+.arcade__trophy-icon { font-size: 32px; line-height: 1; }
+.arcade__rarity { font-family: "Silkscreen", monospace; font-size: 9px; letter-spacing: 0.04em; border: 1px solid; border-radius: 5px; padding: 4px 7px; }
+.arcade__trophy-title { font-family: "Chakra Petch", sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: 0.01em; margin: 16px 0 0; color: #f0f5ee; }
+.arcade__trophy-desc { font-size: 0.9rem; line-height: 1.45; color: #9fabbe; margin: 7px 0 0; }
+
+/* ---- skill tree --------------------------------------------------------- */
+.arcade__skills { display: flex; flex-direction: column; gap: clamp(16px, 2.6vh, 26px); }
+.arcade__skill-cat-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.arcade__skill-cat-num { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--acc); }
+.arcade__skill-cat-name { font-family: "Chakra Petch", sans-serif; font-weight: 600; font-size: clamp(1rem, 1.7vw, 1.2rem); letter-spacing: 0.03em; text-transform: uppercase; color: var(--fg); }
+.arcade__skill-cat-rule { flex: 1; height: 1px; background: color-mix(in srgb, var(--acc) 12%, transparent); }
+.arcade__abilities { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.arcade__ability {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: rgba(14, 20, 31, 0.7);
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.25s ease, background-color 0.25s ease;
+}
+.arcade__ability:hover { transform: translateY(-3px); border-color: var(--acc); background: #101a26; }
+.arcade__ability-slot { flex: none; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+.arcade__ability-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  background-color: var(--text-soft);
+  transition: background-color 0.25s ease;
+}
+.arcade__ability:hover .arcade__ability-icon { background-color: var(--acc); }
+.arcade__ability-mono {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--acc) 20%, transparent);
+  border-radius: 7px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.arcade__ability:hover .arcade__ability-mono { color: var(--acc); border-color: var(--acc); }
+.arcade__ability-name { font-family: "Chakra Petch", sans-serif; font-size: 13.5px; font-weight: 500; color: var(--fg); line-height: 1.2; }
+
+/* ---- side quests -------------------------------------------------------- */
+.arcade__grid-side { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.arcade__side {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(16, 23, 36, 0.9), rgba(11, 16, 25, 0.9));
+  padding: 22px 20px;
+  overflow: hidden;
+  min-height: 230px;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.3s ease;
+}
+.arcade__side:hover { transform: translateY(-4px); }
+.arcade__side-num {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-family: "Silkscreen", monospace;
+  font-size: 2.6rem;
+  color: #243247;
+  opacity: 0.5;
+  transition: color 0.3s ease;
+}
+.arcade__side:hover .arcade__side-num { color: var(--acc); opacity: 0.9; }
+.arcade__side-top { display: flex; align-items: center; gap: 9px; }
+.arcade__side-icon { font-size: 22px; }
+.arcade__side-title { font-family: "Chakra Petch", sans-serif; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.01em; margin: 14px 0 0; text-transform: uppercase; }
+.arcade__side-desc { font-size: 0.94rem; line-height: 1.5; color: #9fabbe; margin: 9px 0 0; flex: 1; }
+.arcade__side-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.arcade__side-tag { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--text-soft); border: 1px solid color-mix(in srgb, var(--acc) 18%, transparent); border-radius: 5px; padding: 3px 8px; }
+.arcade__side-link { margin-top: 16px; font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--acc); display: flex; align-items: center; gap: 7px; }
+
+/* ---- party / contact ---------------------------------------------------- */
+.arcade__section--party { padding: clamp(20px, 4vh, 44px) 0 0; }
+.arcade__party {
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--acc) 20%, transparent);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(18, 26, 40, 0.9), rgba(11, 16, 25, 0.9));
+  padding: clamp(30px, 5vw, 60px);
+  text-align: center;
+  overflow: hidden;
+}
+.arcade__party-glow { position: absolute; inset: 0; background: radial-gradient(60% 80% at 50% 0%, color-mix(in srgb, var(--acc) 12%, transparent) 0%, transparent 70%); }
+.arcade__party-inner { position: relative; }
+.arcade__party-kicker { font-family: "Silkscreen", monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--acc); animation: ga-blink 1.6s step-end infinite; }
+.arcade__party-title { font-family: "Chakra Petch", sans-serif; font-weight: 700; font-size: clamp(2rem, 6vw, 4.2rem); letter-spacing: 0.01em; text-transform: uppercase; margin: 16px 0 0; line-height: 0.98; }
+.arcade__party-copy { max-width: 44ch; margin: 16px auto 0; font-size: clamp(1rem, 1.6vw, 1.15rem); line-height: 1.5; color: var(--text-dim); }
+.arcade__party-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: clamp(24px, 4vh, 36px); }
+.arcade__socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 14px; margin-top: clamp(22px, 3.5vh, 30px); }
+.arcade__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-soft);
+  border: 1px solid color-mix(in srgb, var(--acc) 20%, transparent);
+  border-radius: 8px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  padding: 9px 14px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.arcade__social:hover { color: var(--acc); border-color: var(--acc); }
+
+.arcade__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding: clamp(34px, 6vh, 60px) 0 40px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+}
+.arcade__footer span:last-child { color: var(--acc); }
+
+/* ---- responsive --------------------------------------------------------- */
+@media (max-width: 780px) {
+  .arcade__hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .arcade__menu { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arcade *,
+  .arcade *::before,
+  .arcade *::after {
+    animation: none !important;
+  }
+  .arcade__panel,
+  .arcade__stats { opacity: 1; }
+}

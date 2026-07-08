@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import App from "../App";
+import ClassicApp from "../variants/ClassicApp";
 import profileData from "../data/me.json";
 import type { Profile } from "../types";
 
@@ -41,9 +41,9 @@ describe("me.json data contract", () => {
   });
 });
 
-describe("App", () => {
+describe("ClassicApp", () => {
   it("renders every section with data from me.json", () => {
-    render(<App />);
+    render(<ClassicApp profile={profile} />);
 
     expect(
       screen.getByRole("heading", { level: 1, name: /abhishek/i })
@@ -72,7 +72,7 @@ describe("App", () => {
   });
 
   it("renders the résumé link from me.json", () => {
-    render(<App />);
+    render(<ClassicApp profile={profile} />);
     const resume = screen.getAllByRole("link", { name: /résumé/i });
     expect(resume.length).toBeGreaterThan(0);
     for (const link of resume) {
@@ -83,7 +83,7 @@ describe("App", () => {
   it("defaults to dark theme, toggles to light, and persists the choice", async () => {
     localStorage.clear();
     document.documentElement.dataset.theme = "";
-    render(<App />);
+    render(<ClassicApp profile={profile} />);
 
     const toggle = screen.getByRole("button", { name: /switch to light theme/i });
     expect(document.documentElement.dataset.theme).toBe("dark");
@@ -101,7 +101,7 @@ describe("App", () => {
   });
 
   it("links contact actions to the email in me.json", () => {
-    render(<App />);
+    render(<ClassicApp profile={profile} />);
     const mailLinks = screen
       .getAllByRole("link")
       .filter((a) => a.getAttribute("href")?.startsWith("mailto:"));
